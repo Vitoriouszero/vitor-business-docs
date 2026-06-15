@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline — Dropshipping COD BR</title>
+<style>
+  :root {
+    --bg: #0f0f10;
+    --bg2: #161618;
+    --bg3: #1e1e21;
+    --border: #2a2a2e;
+    --text: #e8e6e0;
+    --muted: #7a7875;
+    --done: #1d9e75;
+    --done-bg: #04342c;
+    --done-border: #0f6e56;
+    --active: #ba7517;
+    --active-bg: #412402;
+    --active-border: #854f0b;
+    --blocked: #993c1d;
+    --blocked-bg: #4a1b0c;
+    --blocked-border: #d85a30;
+    --infra: #444441;
+    --infra-bg: #2c2c2a;
+    --infra-border: #5f5e5a;
+    --future: #3c3489;
+    --future-bg: #26215c;
+    --future-border: #534ab7;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); min-height: 100vh; padding: 32px 24px 64px; }
+  
+  .header { max-width: 860px; margin: 0 auto 40px; }
+  .header h1 { font-size: 22px; font-weight: 500; letter-spacing: -0.3px; margin-bottom: 6px; }
+  .header p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+  .updated { display: inline-block; margin-top: 10px; font-size: 11px; color: var(--muted); background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; }
+
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; max-width: 860px; margin-left: auto; margin-right: auto; }
+  .leg { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+  .leg-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  .pipeline { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 4px; }
+
+  .phase { border-radius: 10px; overflow: hidden; margin-bottom: 8px; border: 1px solid var(--border); }
+  .phase-header { padding: 12px 18px; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+  .phase-header:hover { filter: brightness(1.1); }
+  .phase-title { font-weight: 500; font-size: 13px; letter-spacing: 0.2px; text-transform: uppercase; }
+  .phase-status { font-size: 11px; margin-left: auto; opacity: 0.8; }
+  .phase-body { padding: 16px 18px 18px; background: var(--bg2); display: none; }
+  .phase-body.open { display: block; }
+  .phase-note { font-size: 12px; color: var(--muted); margin-bottom: 14px; line-height: 1.5; border-left: 2px solid var(--border); padding-left: 10px; }
+  .phase-note.warn { border-color: var(--active-border); color: #ef9f27; }
+  .phase-note.alert { border-color: var(--blocked-border); color: #f09995; }
+
+  .phase.done .phase-header { background: var(--done-bg); border-bottom: 1px solid var(--done-border); }
+  .phase.done .phase-title { color: #5dcaa5; }
+  .phase.active .phase-header { background: var(--active-bg); border-bottom: 1px solid var(--active-border); }
+  .phase.active .phase-title { color: #ef9f27; }
+  .phase.blocked .phase-header { background: var(--blocked-bg); border-bottom: 1px solid var(--blocked-border); }
+  .phase.blocked .phase-title { color: #f09995; }
+  .phase.infra .phase-header { background: var(--infra-bg); border-bottom: 1px solid var(--infra-border); }
+  .phase.infra .phase-title { color: #b4b2a9; }
+  .phase.future .phase-header { background: var(--future-bg); border-bottom: 1px solid var(--future-border); }
+  .phase.future .phase-title { color: #afa9ec; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 12px; }
+  .card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+  .card-title { font-weight: 500; font-size: 13px; margin-bottom: 4px; }
+  .card-sub { font-size: 11px; color: var(--muted); line-height: 1.5; }
+  .card.done { border-color: var(--done-border); }
+  .card.done .card-title { color: #5dcaa5; }
+  .card.active { border-color: var(--active-border); }
+  .card.active .card-title { color: #ef9f27; }
+  .card.blocked { border-color: var(--blocked-border); }
+  .card.blocked .card-title { color: #f09995; }
+
+  .badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 3px; margin-bottom: 6px; font-weight: 500; letter-spacing: 0.3px; }
+  .badge.done { background: var(--done-bg); color: #5dcaa5; border: 1px solid var(--done-border); }
+  .badge.pending { background: var(--active-bg); color: #ef9f27; border: 1px solid var(--active-border); }
+  .badge.blocked { background: var(--blocked-bg); color: #f09995; border: 1px solid var(--blocked-border); }
+
+  .connector { text-align: center; color: var(--muted); font-size: 18px; padding: 2px 0; opacity: 0.4; }
+
+  .skill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .skill-tag { font-size: 11px; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; color: var(--muted); }
+  .skill-tag.active { border-color: var(--done-border); color: #5dcaa5; }
+
+  .server-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .server-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+  .server-card h4 { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .server-card ul { list-style: none; }
+  .server-card li { font-size: 11px; color: var(--muted); line-height: 1.8; }
+  .server-card li::before { content: '·  '; }
+
+  .bug-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+  .bug-table th { text-align: left; color: var(--muted); font-weight: 400; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  .bug-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+  .bug-table tr:last-child td { border-bottom: none; }
+  .ok { color: #5dcaa5; }
+  .warn-c { color: #ef9f27; }
+  .err { color: #f09995; }
+
+  .product-note { background: var(--active-bg); border: 1px solid var(--active-border); border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 12px; line-height: 1.6; color: #ef9f27; }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .server-row { grid-template-columns: 1fr; }
+    .legend { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Pipeline — Dropshipping COD BR</h1>
+  <p>Estado atual do negócio, infraestrutura e skills. Atualizar conforme o trabalho avança.</p>
+  <span class="updated">Atualizado: 15/06/2026</span>
+</div>
+
+<div class="legend">
+  <div class="leg"><div class="leg-dot" style="background:#1d9e75"></div> Concluído</div>
+  <div class="leg"><div class="leg-dot" style="background:#ba7517"></div> Em andamento</div>
+  <div class="leg"><div class="leg-dot" style="background:#993c1d"></div> Pendente / bloqueador</div>
+  <div class="leg"><div class="leg-dot" style="background:#444441"></div> Infraestrutura / suporte</div>
+  <div class="leg"><div class="leg-dot" style="background:#3c3489"></div> Futuro / fase 2</div>
+</div>
+
+<div class="pipeline">
+
+  <!-- FASE 1 -->
+  <div class="phase done">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-title">Fase 1 — Pesquisa e Validação</span>
+      <span class="phase-status">✅ Concluída</span>
+    </div>
+    <div class="phase-body open">
+      <div class="phase-note warn">⚠️ O Aspirador de Pó Portátil está sendo usado como produto de TESTE DE INFRAESTRUTURA. Produto definitivo ainda a validar via nova rodada Manus.</div>
+      <div class="grid">
+        <div class="card done">
+          <div class="badge done">CONCLUÍDO</div>
+          <div class="card-title">manus-orchestrator</div>
+          <div class="card-sub">Pesquisa de produto + concorrentes + criativos via Manus AI. Relatório em Drive.</div>
+        </div>
+        <div class="card done">
+          <div class="badge done">CONCLUÍDO</div>
+          <div class="card-title">validacao-produto</div>
+          <div class="card-sub">Aspirador portátil: score 48/50 (produto de teste). Produto definitivo: a definir.</div>
+        </div>
+        <div class="card done">
+          <div class="badge done">DISPONÍVEL</div>
+          <div class="card-title">quick-researcher</div>
+          <div class="card-sub">Verificações rápidas de preço, política Meta, disponibilidade.</div>
+        </div>
+        <div class="card done">
+          <div class="badge done">DISPONÍVEL</div>
+          <div class="card-title">product-context</div>
+          <div class="card-sub">Contexto persistente por produto para usar com outras skills.</div>
+        </div>
+      </div>
+      <div class="product-note">
+        <strong>Produto de teste atual:</strong> Aspirador de Pó Portátil · Logzz pro839xm · verde escuro pistol-grip<br>
+        <strong>Drive:</strong> foto original 1MsscfSM9tG0xgCCa4ldOym8_BRO9Gl2O · sem fundo 1TfH-q0Yyd4RSX1qJBPRX1UYQjziOCPo4<br>
+        <strong>Status:</strong> usado para validar pipeline criativa. Decisão de produto definitivo pendente.
+      </div>
+    </div>
+  </div>
+
+  <div class="connector">↓</div>
+
+  <!-- FASE 2 -->
+  <div class="phase blocked">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-title">Fase 2 — Landing Page</span>
+      <span class="phase-status">❌ Não iniciada — bloqueador de revenue</span>
+    </div>
+    <div class="phase-body open">
+      <div class="phase-note alert">Bloqueador crítico: sem LP não há para onde mandar tráfego. Os criativos ficam sem destino enquanto isso não existir.</div>
+      <div class="grid">
+        <div class="card blocked">
+          <div class="badge blocked">PENDENTE</div>
+          <div class="card-title">web-builder</div>
+          <div class="card-sub">LP COD · mobile-first · HTML completo · pixel + UTM placeholders.</div>
+        </div>
+        <div class="card blocked">
+          <div class="badge blocked">PENDENTE</div>
+          <div class="card-title">deploy-lp</div>
+          <div class="card-sub">Deploy no VPS · Nginx · URL live · A/B test paths.</div>
+        </div>
+        <div class="card blocked">
+          <div class="badge blocked">PENDENTE</div>
+          <div class="card-title">pixel-tracking</div>
+          <div class="card-sub">Meta Pixel + CAPI · EMQ · Purchase event · server-side.</div>
+        </div>
+        <div class="card">
+          <div class="badge pending">PÓS-LP</div>
+          <div class="card-title">conversion-rate-optimization</div>
+          <div class="card-sub">Diagnóstico e otimização após LP live com dados reais.</div>
+        </div>
+      </div>
+      <div class="phase-note" style="margin-top:14px">Aquecimento de conta Meta Ads (BM + pixel + conta de anúncio) deve ser iniciado em paralelo à criação da LP. Não depende da LP estar no ar.</div>
+    </div>
+  </div>
+
+  <div class="connector">↓</div>
+
+  <!-- FASE 3 -->
+  <div class="phase active">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-title">Fase 3 — Criativos UGC</span>
+      <span class="phase-status">⚠️ Pipeline validando — 4 criativos gerados</span>
+    </div>
+    <div class="phase-body open">
+      <div class="phase-note warn">Pipeline de imagem→vídeo funcional. 3 criativos aguardam creative_approve. Validar deploy commit 65bd4ac antes de approvar.</div>
+
+      <div class="grid">
+        <div class="card done">
+          <div class="badge done">APROVADO</div>
+          <div class="card-title">Criativo 01</div>
+          <div class="card-sub">Hook frustração · N1 âncora · 6s · Drive aprovado. "Sabe aquela sujeira que não sai do fogão?"</div>
+        </div>
+        <div class="card active">
+          <div class="badge pending">AGUARDA APPROVE</div>
+          <div class="card-title">Criativo 02</div>
+          <div class="card-sub">Resultado + CTA · N3 âncora · "Limpo em segundos. Paga só quando chegar." Combinar com 01 no CapCut.</div>
+        </div>
+        <div class="card active">
+          <div class="badge pending">AGUARDA APPROVE</div>
+          <div class="card-title">Criativo 03v2</div>
+          <div class="card-sub">Hook descoberta corrigido · N2 âncora · nozzle corrigido · Rule 7 aplicada.</div>
+        </div>
+        <div class="card active">
+          <div class="badge pending">AGUARDA APPROVE</div>
+          <div class="card-title">Criativo 04</div>
+          <div class="card-sub">Product demo hands-only · N6 âncora · top-down · reservatório enchendo.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="card-title" style="font-size:12px;color:var(--muted);margin-bottom:8px">INFRAESTRUTURA CRIATIVA — google-mcp-server</div>
+        <div class="grid">
+          <div class="card done">
+            <div class="card-title" style="font-size:12px">v1.5.4 · 28 tools · VPS</div>
+            <div class="card-sub">Vertex AI billing ativo · OAuth Drive permanente · PM2 estável</div>
+          </div>
+          <div class="card done">
+            <div class="card-title" style="font-size:12px">imagen_edit ✅</div>
+            <div class="card-sub">gemini-2.5-flash-image via vertexAI · 4 modos · Rule 1-7 documentadas</div>
+          </div>
+          <div class="card done">
+            <div class="card-title" style="font-size:12px">image_to_video ✅</div>
+            <div class="card-sub">Veo 3.1 fast/quality · nomes únicos · auto-download · approve por op_id</div>
+          </div>
+          <div class="card active">
+            <div class="card-title" style="font-size:12px">creative_approve ⚠️</div>
+            <div class="card-sub">Aceita operation_id desde commit 65bd4ac — validar deploy antes de usar</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="card-title" style="font-size:12px;color:var(--muted);margin-bottom:8px">REGRAS CRÍTICAS DE PROMPT (validadas empiricamente)</div>
+        <div class="phase-note">
+          Rule 1: não usar second_image_path para corrigir defeitos — fossiliza o problema.<br>
+          Rule 2: proibições específicas > genéricas ("do NOT add elongated nozzle — known failure mode").<br>
+          Rule 3: fórmula Manus: [Composição] + [Produto] + [Cena/Pessoa].<br>
+          Rule 7: mão livre — "free hand resting naturally at side, NOT touching surface".<br>
+          Rule extra: nozzle direction — "pointing AWAY from face toward surface". Rosto: "face fills 60% of frame".
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="card-title" style="font-size:12px;color:var(--muted);margin-bottom:8px">SKILLS ATIVAS NESTA FASE</div>
+        <div class="skill-row">
+          <span class="skill-tag active">google-mcp-orchestrator</span>
+          <span class="skill-tag active">copy-anuncio</span>
+          <span class="skill-tag active">roteiro-criativo-ia</span>
+          <span class="skill-tag active">humanizer</span>
+          <span class="skill-tag active">analise-criativo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector">↓</div>
+
+  <!-- FASE 4 -->
+  <div class="phase blocked">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-title">Fase 4 — Meta Ads</span>
+      <span class="phase-status">⏳ Após LP + criativos aprovados</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-note alert">Depende de: LP live + pixel instalado + conta Meta aquecida + pelo menos 1 criativo aprovado no Drive.</div>
+      <div class="grid">
+        <div class="card">
+          <div class="badge blocked">PENDENTE</div>
+          <div class="card-title">meta-ads-mcp-orchestrator</div>
+          <div class="card-sub">mcp.facebook.com/ads · live data pull · 29 tools.</div>
+        </div>
+        <div class="card">
+          <div class="badge blocked">PENDENTE</div>
+          <div class="card-title">analise-campanha</div>
+          <div class="card-sub">CPA · ROAS · COD acceptance rate · kill/scale decisions.</div>
+        </div>
+        <div class="card">
+          <div class="badge blocked">PENDENTE</div>
+          <div class="card-title">escala-campanha</div>
+          <div class="card-sub">Scaling horizontal/vertical · budget rules · learning phase.</div>
+        </div>
+        <div class="card">
+          <div class="badge blocked">PENDENTE</div>
+          <div class="card-title">cod-pricing</div>
+          <div class="card-sub">Margem · frete · taxa COD · acceptance rate → preço mínimo.</div>
+        </div>
+      </div>
+      <div class="phase-note" style="margin-top:14px">Aquecimento de conta Meta: iniciar antes da LP estar pronta. BM + pixel + conta de anúncio warm-up independente da fase 3.</div>
+    </div>
+  </div>
+
+  <div class="connector">↓</div>
+
+  <!-- OPERAÇÕES -->
+  <div class="phase infra">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-title">Operações Contínuas</span>
+      <span class="phase-status">Paralelas a todas as fases</span>
+    </div>
+    <div class="phase-body">
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">relatorio-operacional</div>
+          <div class="card-sub">Stripe · Wix · Notion · unidade econômica semanal.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">customer-support</div>
+          <div class="card-sub">WhatsApp · reembolso · recusa · Reclame Aqui.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">analise-criativo</div>
+          <div class="card-sub">Hook rate · hold rate · CTR · diagnóstico e iteração.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">conversion-rate-optimization</div>
+          <div class="card-sub">LP diagnosis · A/B test · CPA alto → investigação.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFRAESTRUTURA -->
+  <div class="phase infra" style="margin-top:8px">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-title">Infraestrutura Técnica</span>
+      <span class="phase-status">Estado atual</span>
+    </div>
+    <div class="phase-body">
+      <div class="server-row">
+        <div class="server-card">
+          <h4>google-mcp-server</h4>
+          <ul>
+            <li>v1.5.4 · commit 877ea52 (65bd4ac aguarda validação)</li>
+            <li>28 tools · VPS root@2.24.108.77 · PM2 porta 3001</li>
+            <li>URL: google-mcp-conection.duckdns.org/mcp</li>
+            <li>Vertex AI GCP 787897754989 (billing ativo)</li>
+            <li>OAuth Drive: cliente Web · tokens permanentes</li>
+          </ul>
+        </div>
+        <div class="server-card">
+          <h4>MCPs conectados</h4>
+          <ul>
+            <li>Manus MCP · manus-mcp-conection.duckdns.org</li>
+            <li>Google Drive · Notion · Wix · Stripe</li>
+            <li>Windsor.ai · Hugging Face</li>
+            <li>Meta Ads MCP: pendente conexão</li>
+          </ul>
+        </div>
+        <div class="server-card">
+          <h4>Claude Code</h4>
+          <ul>
+            <li>INTERNO: Windows C:\Users\josev\google-mcp-server</li>
+            <li>EXTERNO: VPS /root/google-mcp-server (emergências)</li>
+            <li>Auto-deploy: GitHub Actions → PM2 restart</li>
+            <li>CLAUDE.md: a implementar (session-memory)</li>
+          </ul>
+        </div>
+        <div class="server-card">
+          <h4>Drive folders</h4>
+          <ul>
+            <li>Manus Outputs: 1wD_yOe8E2MLWjSxGSOKndfCiZefh6jP8</li>
+            <li>Competitor-Analyses: 1kAmGEisEyE8IMsLsh4sI5ZzeCl3QvYeT</li>
+            <li>Insumos Criativos: 1-X8O0eOD7bmbo1JpC41UOSuQnuVsRskk</li>
+            <li>Criativos Aprovados: 1NyOTMZHEny3TZas36xRAmu6ALgrFNDaY</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="card-title" style="font-size:12px;color:var(--muted);margin-bottom:8px">BUGS — STATUS</div>
+        <table class="bug-table">
+          <tr><th>Bug</th><th>Status</th><th>Commit</th></tr>
+          <tr><td>image_to_video não registrava job no store</td><td class="ok">✅ Corrigido</td><td>91ce902</td></tr>
+          <tr><td>Colisão de nomes sample_0.mp4</td><td class="ok">✅ Corrigido</td><td>877ea52</td></tr>
+          <tr><td>veo_get_status não baixava automaticamente</td><td class="warn-c">⚠️ Aguarda validação deploy</td><td>65bd4ac</td></tr>
+          <tr><td>creative_approve não aceitava operation_id</td><td class="warn-c">⚠️ Aguarda validação deploy</td><td>65bd4ac</td></tr>
+          <tr><td>creative_generate_hook_variations "no URI"</td><td class="err">🔴 Aberto</td><td>—</td></tr>
+          <tr><td>gemini-3.1-flash-image requer allowlist</td><td class="warn-c">⏳ Aguarda Google</td><td>—</td></tr>
+        </table>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="card-title" style="font-size:12px;color:var(--muted);margin-bottom:8px">SKILLS DE MANUTENÇÃO</div>
+        <div class="skill-row">
+          <span class="skill-tag active">mcp-health</span>
+          <span class="skill-tag active">security-audit</span>
+          <span class="skill-tag active">cost-optimizer</span>
+          <span class="skill-tag active">session-memory</span>
+          <span class="skill-tag active">session-continuity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUTURO -->
+  <div class="phase future" style="margin-top:8px">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-title">Fase 2 Internacional — Wix + Stripe (Futuro)</span>
+      <span class="phase-status">Planejado — após COD BR estável</span>
+    </div>
+    <div class="phase-body">
+      <div class="grid">
+        <div class="card"><div class="card-title">Wix + Stripe</div><div class="card-sub">US/UK/EU · card checkout · já conectado via MCP.</div></div>
+        <div class="card"><div class="card-title">seo-audit</div><div class="card-sub">Schema.org · Core Web Vitals · hreflang · AI Overviews.</div></div>
+        <div class="card"><div class="card-title">competitor-pages</div><div class="card-sub">Páginas de comparação para SEO orgânico internacional.</div></div>
+        <div class="card"><div class="card-title">react-page-builder</div><div class="card-sub">Componentes React complexos para o Wix store.</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggle(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+</script>
+</body>
+</html>
