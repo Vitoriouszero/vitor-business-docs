@@ -117,7 +117,7 @@
 <div class="header">
   <h1>Pipeline — Dropshipping COD BR</h1>
   <p>Estado atual do negócio, infraestrutura e skills. Atualizar conforme o trabalho avança.</p>
-  <span class="updated">Atualizado: 15/06/2026</span>
+  <span class="updated">Atualizado: 28/06/2026</span>
 </div>
 
 <div class="legend">
@@ -207,34 +207,64 @@
   <div class="connector">↓</div>
 
   <!-- FASE 3 -->
-  <div class="phase active">
+  <div class="phase done">
     <div class="phase-header" onclick="toggle(this)">
       <span class="phase-title">Fase 3 — Criativos UGC</span>
-      <span class="phase-status">⚠️ Pipeline validando — 4 criativos gerados</span>
+      <span class="phase-status">✅ Pipeline validada — 10 criativos gerados (produto de teste)</span>
     </div>
     <div class="phase-body open">
-      <div class="phase-note warn">Pipeline de imagem→vídeo funcional. 3 criativos aguardam creative_approve. Validar deploy commit 65bd4ac antes de approvar.</div>
+      <div class="phase-note">Pipeline validada — 10 criativos gerados (produto de teste). 7 aprovados + 1 perdido + 2 bypass para Drive. Fluxo obrigatório: image_to_video → veo_get_status → creative_approve na mesma sessão sem PM2 restart.</div>
 
       <div class="grid">
         <div class="card done">
           <div class="badge done">APROVADO</div>
           <div class="card-title">Criativo 01</div>
-          <div class="card-sub">Hook frustração · N1 âncora · 6s · Drive aprovado. "Sabe aquela sujeira que não sai do fogão?"</div>
+          <div class="card-sub">Hook frustração · N1 âncora · 6s · Drive: 1TxDG1nlS0BvSeiXog7KM0aM3C3hmrc1S</div>
         </div>
-        <div class="card active">
-          <div class="badge pending">AGUARDA APPROVE</div>
+        <div class="card blocked">
+          <div class="badge blocked">PERDIDO</div>
           <div class="card-title">Criativo 02</div>
-          <div class="card-sub">Resultado + CTA · N3 âncora · "Limpo em segundos. Paga só quando chegar." Combinar com 01 no CapCut.</div>
+          <div class="card-sub">Colisão de nomes pré-fix 877ea52 · não recuperável</div>
         </div>
         <div class="card active">
-          <div class="badge pending">AGUARDA APPROVE</div>
+          <div class="badge pending">DRIVE (bypass)</div>
           <div class="card-title">Criativo 03v2</div>
-          <div class="card-sub">Hook descoberta corrigido · N2 âncora · nozzle corrigido · Rule 7 aplicada.</div>
+          <div class="card-sub">Hook descoberta corrigido · N2 âncora · Drive: 1N-iZlpbrOrJUoBvd3GJ3us5Rk5npyOAz</div>
         </div>
         <div class="card active">
-          <div class="badge pending">AGUARDA APPROVE</div>
+          <div class="badge pending">DRIVE (bypass)</div>
           <div class="card-title">Criativo 04</div>
-          <div class="card-sub">Product demo hands-only · N6 âncora · top-down · reservatório enchendo.</div>
+          <div class="card-sub">Product demo hands-only · N6 âncora · Drive: 1x1I2cWRLmFhsJ4OZR-Ng77QTt1pQKh3e</div>
+        </div>
+        <div class="card done">
+          <div class="badge done">APROVADO</div>
+          <div class="card-title">Criativo 05</div>
+          <div class="card-sub">Primeiro end-to-end validado · bocal correto · Drive: 1phvyjItcbcBj41MzSPvLIuX2oGbWsfM1</div>
+        </div>
+        <div class="card done">
+          <div class="badge done">APROVADO</div>
+          <div class="card-title">Criativo 06</div>
+          <div class="card-sub">Bocal v2 · mão toca superfície · Drive: 1VgcK3rKpYw9qYqIPBdMvar8sonav23pL</div>
+        </div>
+        <div class="card done">
+          <div class="badge done">APROVADO</div>
+          <div class="card-title">Criativo 07</div>
+          <div class="card-sub">Medium close-up + mão no quadril (ação positiva) · Drive: 1EFu4rljUT5PIZ6dVM03nJOpxDZGOJWgQ</div>
+        </div>
+        <div class="card done">
+          <div class="badge done">APROVADO</div>
+          <div class="card-title">Criativo 08</div>
+          <div class="card-sub">Close-up + timestamp prompting · mão no quadril ✅ · Drive: 1a_w8mQQ2K-4PiHNRjA2NlgUylZAanBSw</div>
+        </div>
+        <div class="card done" style="border-color:#c9a227">
+          <div class="badge done">APROVADO ⭐</div>
+          <div class="card-title" style="color:#c9a227">Criativo 09 — MELHOR RESULTADO</div>
+          <div class="card-sub">Extreme close-up · arco emocional frustração→satisfação · mão no quadril ✅ · Drive: 1RRXA3bb7DMgE3-_R-NXKQE9dn_aZiOxA</div>
+        </div>
+        <div class="card done">
+          <div class="badge done">APROVADO</div>
+          <div class="card-title">Criativo 10</div>
+          <div class="card-sub">Síntese: extreme close-up + timestamp + negative prompt · Drive: 1xnRMSTdj1gprXK11D03RLldt6wBE-Hgm</div>
         </div>
       </div>
 
@@ -253,21 +283,29 @@
             <div class="card-title" style="font-size:12px">image_to_video ✅</div>
             <div class="card-sub">Veo 3.1 fast/quality · nomes únicos · auto-download · approve por op_id</div>
           </div>
-          <div class="card active">
-            <div class="card-title" style="font-size:12px">creative_approve ⚠️</div>
-            <div class="card-sub">Aceita operation_id desde commit 65bd4ac — validar deploy antes de usar</div>
+          <div class="card done">
+            <div class="card-title" style="font-size:12px">creative_approve ✅</div>
+            <div class="card-sub">Aceita operation_id (commit 65bd4ac) · Fluxo obrigatório: image_to_video → veo_get_status → creative_approve na mesma sessão sem PM2 restart</div>
           </div>
         </div>
       </div>
 
       <div style="margin-top:14px">
-        <div class="card-title" style="font-size:12px;color:var(--muted);margin-bottom:8px">REGRAS CRÍTICAS DE PROMPT (validadas empiricamente)</div>
+        <div class="card-title" style="font-size:12px;color:var(--muted);margin-bottom:8px">REGRAS CRÍTICAS DE PROMPT — Veo 3.1 + imagen_edit (validadas empiricamente, Criativos 01–10)</div>
         <div class="phase-note">
           Rule 1: não usar second_image_path para corrigir defeitos — fossiliza o problema.<br>
-          Rule 2: proibições específicas > genéricas ("do NOT add elongated nozzle — known failure mode").<br>
+          Rule 2: proibições específicas > genéricas ("do NOT add elongated nozzle").<br>
           Rule 3: fórmula Manus: [Composição] + [Produto] + [Cena/Pessoa].<br>
-          Rule 7: mão livre — "free hand resting naturally at side, NOT touching surface".<br>
-          Rule extra: nozzle direction — "pointing AWAY from face toward surface". Rosto: "face fills 60% of frame".
+          Rule 4: generate_with_reference é o modo mais poderoso para UGC com pessoa.<br>
+          Rule 5: swap_background dá máxima fidelidade geométrica para shots sem pessoa.<br>
+          Rule 6: remove_background retorna fundo branco, não transparente.<br>
+          Rule 7 (DEPRECATED): instrução negativa de mão livre ignorada pelo Veo → ver Rule 9.<br>
+          Rule 8: direção de bocal/ponta deve ser explicitada para produtos funcionais.<br>
+          Rule 9: membro livre → ação positiva com timestamp ("left hand resting on her hip").<br>
+          Rule 10: shot type front-loaded como primeiras palavras do prompt.<br>
+          Rule 11: timestamp prompting obrigatório para controle de ação, emoção e membros.<br>
+          <br>
+          <strong>REGRA CRÍTICA:</strong> veo_get_status e creative_approve exigem o FULL operation path. Short ID (UUID curto) retorna 404. Copiar verbatim o campo operation_id do retorno.
         </div>
       </div>
 
@@ -361,7 +399,7 @@
         <div class="server-card">
           <h4>google-mcp-server</h4>
           <ul>
-            <li>v1.5.4 · commit 877ea52 (65bd4ac aguarda validação)</li>
+            <li>v1.5.7 · commit 7361478 · auto-deploy GitHub Actions ativo</li>
             <li>28 tools · VPS root@2.24.108.77 · PM2 porta 3001</li>
             <li>URL: google-mcp-conection.duckdns.org/mcp</li>
             <li>Vertex AI GCP 787897754989 (billing ativo)</li>
@@ -392,7 +430,12 @@
             <li>Manus Outputs: 1wD_yOe8E2MLWjSxGSOKndfCiZefh6jP8</li>
             <li>Competitor-Analyses: 1kAmGEisEyE8IMsLsh4sI5ZzeCl3QvYeT</li>
             <li>Insumos Criativos: 1-X8O0eOD7bmbo1JpC41UOSuQnuVsRskk</li>
-            <li>Criativos Aprovados: 1NyOTMZHEny3TZas36xRAmu6ALgrFNDaY</li>
+            <li>Criativos Aprovados (produção): 1NyOTMZHEny3TZas36xRAmu6ALgrFNDaY</li>
+            <li>Estúdio Criativo (staging pipeline): 1eZ-Wt4XQVdKNeAeP1g4XivsF9bmWR1tK</li>
+            <li style="padding-left:12px">→ aspirador-portatil/referencias-N-series/: 1-N1S4HWKuLS8ZtNye2IlRKl_kjA0mRgk</li>
+            <li style="padding-left:12px">→ aspirador-portatil/candidatos/: 18Tw9EKuH1PltBnoN8MuxSC0bL-f92l7C</li>
+            <li style="padding-left:12px">→ aspirador-portatil/aprovados-para-meta/: 1vD0SPOPZBefYpGqRxL4hyeyTrAr24ipr</li>
+            <li style="padding-left:12px">→ aspirador-portatil/testes-descartados/: 1ERmqX0iUIcKc-ueqp6WE4mxU5QguEcHl</li>
           </ul>
         </div>
       </div>
@@ -403,10 +446,13 @@
           <tr><th>Bug</th><th>Status</th><th>Commit</th></tr>
           <tr><td>image_to_video não registrava job no store</td><td class="ok">✅ Corrigido</td><td>91ce902</td></tr>
           <tr><td>Colisão de nomes sample_0.mp4</td><td class="ok">✅ Corrigido</td><td>877ea52</td></tr>
-          <tr><td>veo_get_status não baixava automaticamente</td><td class="warn-c">⚠️ Aguarda validação deploy</td><td>65bd4ac</td></tr>
-          <tr><td>creative_approve não aceitava operation_id</td><td class="warn-c">⚠️ Aguarda validação deploy</td><td>65bd4ac</td></tr>
+          <tr><td>veo_get_status não baixava automaticamente</td><td class="ok">✅ Corrigido</td><td>65bd4ac</td></tr>
+          <tr><td>creative_approve não aceitava operation_id</td><td class="ok">✅ Corrigido</td><td>65bd4ac</td></tr>
+          <tr><td>videoJobs Map não sobrevivia PM2 restart</td><td class="ok">✅ Corrigido</td><td>88d5a50</td></tr>
+          <tr><td>WAV corrompido em hook_variations</td><td class="ok">✅ Corrigido</td><td>465b1cb</td></tr>
+          <tr><td>WAV corrompido em creative_generate</td><td class="ok">✅ Corrigido</td><td>7361478</td></tr>
           <tr><td>creative_generate_hook_variations "no URI"</td><td class="err">🔴 Aberto</td><td>—</td></tr>
-          <tr><td>gemini-3.1-flash-image requer allowlist</td><td class="warn-c">⏳ Aguarda Google</td><td>—</td></tr>
+          <tr><td>gemini-3.1-flash-image requer allowlist Vertex AI</td><td class="warn-c">⏳ Aguarda Google</td><td>—</td></tr>
         </table>
       </div>
 
@@ -419,6 +465,30 @@
           <span class="skill-tag active">session-memory</span>
           <span class="skill-tag active">session-continuity</span>
         </div>
+        <div class="phase-note" style="margin-top:10px">27 skills ativas · Fase 1 + Fase 2A + Fase 2B completas (28/06/2026)<br>Pendente: web-builder (melhoria com Impeccable + Huashu) · Meta-MCP + skill de uso</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PENDÊNCIAS TÉCNICAS -->
+  <div class="phase active" style="margin-top:8px">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-title">Pendências Técnicas</span>
+      <span class="phase-status">Bloco 2 — Claude Code, Sem 7</span>
+    </div>
+    <div class="phase-body">
+      <div class="card-title" style="font-size:12px;color:var(--muted);margin-bottom:8px">PENDÊNCIAS TÉCNICAS — BLOCO 2 (Claude Code, Sem 7)</div>
+      <div class="phase-note">
+        → Drive: tools move/delete/rename no google-mcp-server (Drive API v3)<br>
+        → HyperFrames (github.com/heygen-com/hyperframes): instalar + skill de composição de vídeo<br>
+        &nbsp;&nbsp;&nbsp;Objetivo: compor clips Veo em sequência, queimar CTA, exportar MP4 sem CapCut<br>
+        → video-use (github.com/browser-use/video-use): avaliar para extração de frames de produto<br>
+        → session-memory (CLAUDE.md): implementar para Claude Code manter contexto entre sessões
+      </div>
+      <div class="card-title" style="font-size:12px;color:var(--muted);margin-top:14px;margin-bottom:8px">PENDÊNCIAS CLAUDE CHAT — BLOCO 1 RESTANTE (Sem 6)</div>
+      <div class="phase-note">
+        → web-builder: melhorar com Impeccable + Huashu Design (chat separado)<br>
+        → Meta-MCP: incrementar + melhorar skill de uso
       </div>
     </div>
   </div>
