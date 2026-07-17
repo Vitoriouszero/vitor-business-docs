@@ -10,9 +10,13 @@
     "endpoints": 32
   },
   "provenance": {
-    "fonte": "Vertex AI region x model diagnostic (serial re-test v2), executado no VPS do usuario",
+    "titulo": "Re-teste de Regioes Vertex AI v2 (100% serial)",
+    "data_teste": "2026-07-16",
     "publicado_em": "2026-07-17",
-    "nota": "master reconstruido a partir de perModel + cobertura; latencias de celulas que falharam (model-404) foram omitidas (ms=null) por nao terem valor de sinal. Todas as latencias de sucesso (ok=true) sao os valores medidos originais."
+    "sdk": "@google/genai 1.52.0",
+    "node": "v20.20.2",
+    "artifact": "https://claude.ai/code/artifact/46318ca1-2df4-4c7d-953c-ac351263760f",
+    "nota": "master reconstruido deterministicamente de perModel+cov; latencias de sucesso = valores medidos reais; latencias das celulas 404 omitidas (ms=null). report_data.json bruto sha256=d9ee0762d960dca74edf63a285232f95e23c3437e10491dc6e59f55eca1fd43d"
   },
   "endpointsOrder": [
     "global",
@@ -1112,7 +1116,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1122,7 +1126,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1132,7 +1136,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1142,7 +1146,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1232,7 +1236,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1252,7 +1256,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1262,7 +1266,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1282,7 +1286,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1342,7 +1346,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1352,7 +1356,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1362,7 +1366,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1372,7 +1376,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1392,7 +1396,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1402,7 +1406,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1412,7 +1416,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1422,7 +1426,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1432,7 +1436,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1452,7 +1456,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1462,7 +1466,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1472,7 +1476,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1482,7 +1486,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1622,7 +1626,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1682,7 +1686,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1692,7 +1696,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1752,7 +1756,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1762,7 +1766,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1772,7 +1776,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1792,7 +1796,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1802,7 +1806,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1812,7 +1816,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1822,7 +1826,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1902,7 +1906,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1912,7 +1916,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1932,7 +1936,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1942,7 +1946,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -1962,7 +1966,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2022,7 +2026,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2032,7 +2036,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2042,7 +2046,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2052,7 +2056,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2062,7 +2066,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2072,7 +2076,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2082,7 +2086,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2092,7 +2096,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2102,7 +2106,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2112,7 +2116,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2172,7 +2176,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2182,7 +2186,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2192,7 +2196,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2202,7 +2206,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2212,7 +2216,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2222,7 +2226,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2232,7 +2236,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2242,7 +2246,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2252,7 +2256,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2262,7 +2266,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2282,7 +2286,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2292,7 +2296,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2302,7 +2306,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2312,7 +2316,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2322,7 +2326,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2332,7 +2336,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2342,7 +2346,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2352,7 +2356,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2362,7 +2366,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2372,7 +2376,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2412,7 +2416,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2422,7 +2426,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2432,7 +2436,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2442,7 +2446,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2452,7 +2456,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2472,7 +2476,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2482,7 +2486,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2492,7 +2496,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2502,7 +2506,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2512,7 +2516,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2522,7 +2526,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2532,7 +2536,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2542,7 +2546,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2552,7 +2556,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2562,7 +2566,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2572,7 +2576,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2582,7 +2586,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2592,7 +2596,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2602,7 +2606,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2612,7 +2616,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2622,7 +2626,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2632,7 +2636,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2642,7 +2646,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2652,7 +2656,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2662,7 +2666,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2672,7 +2676,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2682,7 +2686,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2692,7 +2696,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2702,7 +2706,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2712,7 +2716,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2722,7 +2726,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2732,7 +2736,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2742,7 +2746,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2752,7 +2756,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2762,7 +2766,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2772,7 +2776,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2782,7 +2786,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2792,7 +2796,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2852,7 +2856,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2862,7 +2866,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2872,7 +2876,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2882,7 +2886,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2892,7 +2896,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2902,7 +2906,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2912,7 +2916,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2922,7 +2926,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2932,7 +2936,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2942,7 +2946,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2952,7 +2956,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2962,7 +2966,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2972,7 +2976,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2982,7 +2986,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -2992,7 +2996,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3002,7 +3006,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3012,7 +3016,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3022,7 +3026,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3032,7 +3036,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3042,7 +3046,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3052,7 +3056,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3062,7 +3066,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3072,7 +3076,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3082,7 +3086,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3092,7 +3096,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3102,7 +3106,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3112,7 +3116,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3122,7 +3126,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3132,7 +3136,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3152,7 +3156,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3162,7 +3166,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3172,7 +3176,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3182,7 +3186,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3192,7 +3196,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3202,7 +3206,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3212,7 +3216,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3222,7 +3226,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3232,7 +3236,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3242,7 +3246,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3252,7 +3256,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3262,7 +3266,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3272,7 +3276,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3282,7 +3286,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3292,7 +3296,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3302,7 +3306,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3312,7 +3316,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3322,7 +3326,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3332,7 +3336,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3342,7 +3346,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3352,7 +3356,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3362,7 +3366,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3372,7 +3376,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3382,7 +3386,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3392,7 +3396,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3402,7 +3406,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3412,7 +3416,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3422,7 +3426,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3432,7 +3436,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3442,7 +3446,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3452,7 +3456,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3462,7 +3466,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "text",
@@ -3472,7 +3476,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3492,7 +3496,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3502,7 +3506,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3512,7 +3516,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3522,7 +3526,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3602,7 +3606,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3612,7 +3616,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3632,7 +3636,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3642,7 +3646,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3662,7 +3666,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3682,7 +3686,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3722,7 +3726,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3732,7 +3736,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3742,7 +3746,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3752,7 +3756,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3762,7 +3766,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3772,7 +3776,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3782,7 +3786,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3792,7 +3796,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3802,7 +3806,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3812,7 +3816,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3832,7 +3836,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3842,7 +3846,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3852,7 +3856,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3862,7 +3866,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3872,7 +3876,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3882,7 +3886,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3892,7 +3896,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3902,7 +3906,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3912,7 +3916,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3922,7 +3926,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3932,7 +3936,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3942,7 +3946,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3952,7 +3956,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3962,7 +3966,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3972,7 +3976,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3982,7 +3986,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -3992,7 +3996,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4002,7 +4006,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4012,7 +4016,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4022,7 +4026,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4032,7 +4036,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4042,7 +4046,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4052,7 +4056,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4062,7 +4066,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4072,7 +4076,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4082,7 +4086,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4092,7 +4096,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4102,7 +4106,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4112,7 +4116,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4122,7 +4126,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4132,7 +4136,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4142,7 +4146,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4152,7 +4156,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4172,7 +4176,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4182,7 +4186,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4192,7 +4196,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4202,7 +4206,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4212,7 +4216,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4222,7 +4226,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4232,7 +4236,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4242,7 +4246,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4252,7 +4256,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4262,7 +4266,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4272,7 +4276,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4282,7 +4286,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4292,7 +4296,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4302,7 +4306,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4312,7 +4316,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4322,7 +4326,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4332,7 +4336,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4342,7 +4346,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4352,7 +4356,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4362,7 +4366,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4372,7 +4376,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4382,7 +4386,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4392,7 +4396,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4402,7 +4406,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4412,7 +4416,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4422,7 +4426,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4432,7 +4436,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4442,7 +4446,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4452,7 +4456,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4462,7 +4466,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4472,7 +4476,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4482,7 +4486,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4492,7 +4496,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4512,7 +4516,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4522,7 +4526,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4532,7 +4536,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4542,7 +4546,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4552,7 +4556,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4562,7 +4566,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4572,7 +4576,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4582,7 +4586,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4592,7 +4596,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4602,7 +4606,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4612,7 +4616,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4622,7 +4626,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4632,7 +4636,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4642,7 +4646,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4652,7 +4656,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4662,7 +4666,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4672,7 +4676,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4682,7 +4686,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4692,7 +4696,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4702,7 +4706,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4712,7 +4716,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4722,7 +4726,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4732,7 +4736,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4742,7 +4746,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4752,7 +4756,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4762,7 +4766,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4772,7 +4776,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4782,7 +4786,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4792,7 +4796,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4802,7 +4806,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4812,7 +4816,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4822,7 +4826,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4832,7 +4836,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4852,7 +4856,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4862,7 +4866,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4872,7 +4876,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4882,7 +4886,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -4942,7 +4946,7 @@
       "ms": null,
       "status": 200,
       "kind": "rai-filtered",
-      "detail": "RAI filtered (Imagen recusou o prompt)"
+      "detail": "RAI filtered"
     },
     {
       "modality": "image",
@@ -5022,7 +5026,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5032,7 +5036,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5052,7 +5056,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5062,7 +5066,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5072,7 +5076,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5082,7 +5086,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5092,7 +5096,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5152,7 +5156,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5162,7 +5166,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5172,7 +5176,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5192,7 +5196,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5202,7 +5206,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5212,7 +5216,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5222,7 +5226,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5362,7 +5366,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5372,7 +5376,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5392,7 +5396,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5402,7 +5406,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5412,7 +5416,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5422,7 +5426,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5432,7 +5436,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5492,7 +5496,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5502,7 +5506,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5512,7 +5516,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5532,7 +5536,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5542,7 +5546,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5552,7 +5556,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5562,7 +5566,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5702,7 +5706,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5712,7 +5716,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5732,7 +5736,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5742,7 +5746,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5752,7 +5756,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5762,7 +5766,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5772,7 +5776,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5832,7 +5836,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5842,7 +5846,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "image",
@@ -5852,7 +5856,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5872,7 +5876,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5882,7 +5886,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5892,7 +5896,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5902,7 +5906,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5912,7 +5916,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5922,7 +5926,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5942,7 +5946,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5952,7 +5956,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5962,7 +5966,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5972,7 +5976,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5982,7 +5986,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -5992,7 +5996,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6002,7 +6006,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6012,7 +6016,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6022,7 +6026,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6032,7 +6036,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6042,7 +6046,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6052,7 +6056,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6062,7 +6066,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6072,7 +6076,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6082,7 +6086,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6092,7 +6096,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6102,7 +6106,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6112,7 +6116,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6122,7 +6126,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6132,7 +6136,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6142,7 +6146,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6152,7 +6156,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6162,7 +6166,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6172,7 +6176,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6182,7 +6186,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6192,7 +6196,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6212,7 +6216,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6222,7 +6226,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6232,7 +6236,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6242,7 +6246,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6252,7 +6256,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6262,7 +6266,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6282,7 +6286,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6292,7 +6296,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6302,7 +6306,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6312,7 +6316,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6322,7 +6326,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6332,7 +6336,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6342,7 +6346,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6352,7 +6356,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6362,7 +6366,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6372,7 +6376,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6382,7 +6386,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6392,7 +6396,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6402,7 +6406,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6412,7 +6416,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6422,7 +6426,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6432,7 +6436,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6442,7 +6446,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6452,7 +6456,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6462,7 +6466,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6472,7 +6476,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6482,7 +6486,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6492,7 +6496,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6502,7 +6506,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6512,7 +6516,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6522,7 +6526,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6532,7 +6536,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6552,7 +6556,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6562,7 +6566,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6572,7 +6576,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6582,7 +6586,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6592,7 +6596,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6602,7 +6606,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6622,7 +6626,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6632,7 +6636,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6642,7 +6646,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6652,7 +6656,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6662,7 +6666,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6672,7 +6676,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6682,7 +6686,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6692,7 +6696,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6702,7 +6706,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6712,7 +6716,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6722,7 +6726,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6732,7 +6736,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6742,7 +6746,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6752,7 +6756,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6762,7 +6766,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6772,7 +6776,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6782,7 +6786,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6792,7 +6796,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6802,7 +6806,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6812,7 +6816,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6822,7 +6826,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6832,7 +6836,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6842,7 +6846,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6852,7 +6856,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6862,7 +6866,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     },
     {
       "modality": "video",
@@ -6872,7 +6876,7 @@
       "ms": null,
       "status": 404,
       "kind": "model-404",
-      "detail": "model-404 (modelo indisponivel neste endpoint)"
+      "detail": "model-404"
     }
   ]
 }
