@@ -1,0 +1,6878 @@
+{
+  "meta": {
+    "totalCells": 578,
+    "ok": 154,
+    "err": 424,
+    "errKinds": {
+      "model-404": 423,
+      "rai-filtered": 1
+    },
+    "endpoints": 32
+  },
+  "provenance": {
+    "fonte": "Vertex AI region x model diagnostic (serial re-test v2), executado no VPS do usuario",
+    "publicado_em": "2026-07-17",
+    "nota": "master reconstruido a partir de perModel + cobertura; latencias de celulas que falharam (model-404) foram omitidas (ms=null) por nao terem valor de sinal. Todas as latencias de sucesso (ok=true) sao os valores medidos originais."
+  },
+  "endpointsOrder": [
+    "global",
+    "us(normal)",
+    "us(baseUrl)",
+    "eu(normal)",
+    "eu(baseUrl)",
+    "us-west1",
+    "us-west4",
+    "us-central1",
+    "us-east1",
+    "us-east4",
+    "us-east5",
+    "us-south1",
+    "northamerica-northeast1",
+    "southamerica-east1",
+    "europe-west1",
+    "europe-west2",
+    "europe-west3",
+    "europe-west4",
+    "europe-west6",
+    "europe-west8",
+    "europe-west9",
+    "europe-north1",
+    "europe-central2",
+    "europe-southwest1",
+    "asia-east1",
+    "asia-east2",
+    "asia-south1",
+    "asia-southeast1",
+    "asia-northeast1",
+    "asia-northeast3",
+    "australia-southeast1",
+    "me-west1",
+    "me-central1",
+    "me-central2"
+  ],
+  "modelsByModality": {
+    "text": [
+      "gemini-2.5-pro",
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-lite",
+      "gemini-3.5-flash",
+      "gemini-3.1-pro-preview",
+      "gemini-3.1-flash-lite",
+      "gemini-3-flash-preview"
+    ],
+    "image": [
+      "gemini-2.5-flash-image",
+      "gemini-3-pro-image",
+      "gemini-3.1-flash-image",
+      "gemini-3.1-flash-lite-image",
+      "imagen-4.0-generate-001",
+      "imagen-4.0-ultra-generate-001",
+      "imagen-4.0-fast-generate-001"
+    ],
+    "video": [
+      "veo-3.1-fast-generate-001",
+      "veo-3.1-generate-001",
+      "veo-3.1-lite-generate-001"
+    ]
+  },
+  "perModel": {
+    "text": {
+      "gemini-2.5-pro": [
+        {
+          "ep": "us-central1",
+          "ms": 1785
+        },
+        {
+          "ep": "northamerica-northeast1",
+          "ms": 1826
+        },
+        {
+          "ep": "us-south1",
+          "ms": 2122
+        },
+        {
+          "ep": "us-east5",
+          "ms": 2171
+        },
+        {
+          "ep": "us-east4",
+          "ms": 2300
+        },
+        {
+          "ep": "global",
+          "ms": 2513
+        },
+        {
+          "ep": "europe-central2",
+          "ms": 2520
+        },
+        {
+          "ep": "us-east1",
+          "ms": 2549
+        },
+        {
+          "ep": "us-west4",
+          "ms": 2565
+        },
+        {
+          "ep": "europe-west4",
+          "ms": 2570
+        },
+        {
+          "ep": "europe-west1",
+          "ms": 2582
+        },
+        {
+          "ep": "us-west1",
+          "ms": 2590
+        },
+        {
+          "ep": "europe-west9",
+          "ms": 2664
+        },
+        {
+          "ep": "europe-southwest1",
+          "ms": 2978
+        },
+        {
+          "ep": "europe-west8",
+          "ms": 3133
+        },
+        {
+          "ep": "europe-north1",
+          "ms": 3167
+        },
+        {
+          "ep": "asia-northeast1",
+          "ms": 3454
+        }
+      ],
+      "gemini-2.5-flash": [
+        {
+          "ep": "europe-west3",
+          "ms": 406
+        },
+        {
+          "ep": "us-east5",
+          "ms": 507
+        },
+        {
+          "ep": "europe-west2",
+          "ms": 509
+        },
+        {
+          "ep": "asia-southeast1",
+          "ms": 533
+        },
+        {
+          "ep": "northamerica-northeast1",
+          "ms": 539
+        },
+        {
+          "ep": "us-south1",
+          "ms": 566
+        },
+        {
+          "ep": "europe-west1",
+          "ms": 572
+        },
+        {
+          "ep": "us-east4",
+          "ms": 579
+        },
+        {
+          "ep": "us-central1",
+          "ms": 615
+        },
+        {
+          "ep": "asia-northeast1",
+          "ms": 629
+        },
+        {
+          "ep": "us-west4",
+          "ms": 669
+        },
+        {
+          "ep": "southamerica-east1",
+          "ms": 695
+        },
+        {
+          "ep": "us-east1",
+          "ms": 699
+        },
+        {
+          "ep": "europe-west4",
+          "ms": 823
+        },
+        {
+          "ep": "australia-southeast1",
+          "ms": 828
+        },
+        {
+          "ep": "europe-west8",
+          "ms": 927
+        },
+        {
+          "ep": "europe-southwest1",
+          "ms": 927
+        },
+        {
+          "ep": "europe-central2",
+          "ms": 970
+        },
+        {
+          "ep": "asia-south1",
+          "ms": 1006
+        },
+        {
+          "ep": "us-west1",
+          "ms": 1024
+        },
+        {
+          "ep": "asia-northeast3",
+          "ms": 1071
+        },
+        {
+          "ep": "europe-north1",
+          "ms": 1101
+        },
+        {
+          "ep": "europe-west9",
+          "ms": 1217
+        },
+        {
+          "ep": "global",
+          "ms": 1759
+        }
+      ],
+      "gemini-2.5-flash-lite": [
+        {
+          "ep": "europe-west1",
+          "ms": 283
+        },
+        {
+          "ep": "global",
+          "ms": 301
+        },
+        {
+          "ep": "europe-west9",
+          "ms": 341
+        },
+        {
+          "ep": "us-east4",
+          "ms": 345
+        },
+        {
+          "ep": "europe-west8",
+          "ms": 359
+        },
+        {
+          "ep": "europe-west4",
+          "ms": 361
+        },
+        {
+          "ep": "us-east1",
+          "ms": 367
+        },
+        {
+          "ep": "us-south1",
+          "ms": 369
+        },
+        {
+          "ep": "europe-southwest1",
+          "ms": 381
+        },
+        {
+          "ep": "europe-central2",
+          "ms": 382
+        },
+        {
+          "ep": "us-east5",
+          "ms": 392
+        },
+        {
+          "ep": "us-west4",
+          "ms": 454
+        },
+        {
+          "ep": "us-west1",
+          "ms": 470
+        },
+        {
+          "ep": "europe-north1",
+          "ms": 475
+        },
+        {
+          "ep": "us-central1",
+          "ms": 499
+        }
+      ],
+      "gemini-3.5-flash": [
+        {
+          "ep": "europe-west2",
+          "ms": 426
+        },
+        {
+          "ep": "asia-northeast1",
+          "ms": 713
+        },
+        {
+          "ep": "asia-south1",
+          "ms": 824
+        },
+        {
+          "ep": "us(normal)",
+          "ms": 841
+        },
+        {
+          "ep": "global",
+          "ms": 921
+        },
+        {
+          "ep": "asia-southeast1",
+          "ms": 973
+        },
+        {
+          "ep": "eu(normal)",
+          "ms": 1115
+        },
+        {
+          "ep": "eu(baseUrl)",
+          "ms": 1251
+        },
+        {
+          "ep": "us(baseUrl)",
+          "ms": 2517
+        }
+      ],
+      "gemini-3.1-pro-preview": [
+        {
+          "ep": "global",
+          "ms": 2630
+        }
+      ],
+      "gemini-3.1-flash-lite": [
+        {
+          "ep": "us(normal)",
+          "ms": 623
+        },
+        {
+          "ep": "global",
+          "ms": 706
+        },
+        {
+          "ep": "eu(baseUrl)",
+          "ms": 1056
+        },
+        {
+          "ep": "eu(normal)",
+          "ms": 1479
+        },
+        {
+          "ep": "us(baseUrl)",
+          "ms": 4078
+        }
+      ],
+      "gemini-3-flash-preview": [
+        {
+          "ep": "global",
+          "ms": 913
+        }
+      ]
+    },
+    "image": {
+      "gemini-2.5-flash-image": [
+        {
+          "ep": "europe-southwest1",
+          "ms": 4836,
+          "b64len": 251908
+        },
+        {
+          "ep": "europe-west8",
+          "ms": 4936,
+          "b64len": 241956
+        },
+        {
+          "ep": "us-west4",
+          "ms": 4965,
+          "b64len": 200928
+        },
+        {
+          "ep": "us-east1",
+          "ms": 5029,
+          "b64len": 951432
+        },
+        {
+          "ep": "us-central1",
+          "ms": 5033,
+          "b64len": 994836
+        },
+        {
+          "ep": "us-south1",
+          "ms": 5081,
+          "b64len": 926300
+        },
+        {
+          "ep": "europe-north1",
+          "ms": 5144,
+          "b64len": 412216
+        },
+        {
+          "ep": "us-west1",
+          "ms": 5190,
+          "b64len": 357724
+        },
+        {
+          "ep": "us-east5",
+          "ms": 5227,
+          "b64len": 1013392
+        },
+        {
+          "ep": "europe-west1",
+          "ms": 5344,
+          "b64len": 955760
+        },
+        {
+          "ep": "us-east4",
+          "ms": 5497,
+          "b64len": 1327832
+        },
+        {
+          "ep": "europe-west4",
+          "ms": 5779,
+          "b64len": 1224828
+        },
+        {
+          "ep": "europe-central2",
+          "ms": 5902,
+          "b64len": 967472
+        },
+        {
+          "ep": "global",
+          "ms": 13457,
+          "b64len": 807720
+        }
+      ],
+      "gemini-3-pro-image": [
+        {
+          "ep": "global",
+          "ms": 15901,
+          "b64len": 128240
+        }
+      ],
+      "gemini-3.1-flash-image": [
+        {
+          "ep": "global",
+          "ms": 9737,
+          "b64len": 1442544
+        }
+      ],
+      "gemini-3.1-flash-lite-image": [
+        {
+          "ep": "global",
+          "ms": 2737,
+          "b64len": 27408
+        }
+      ],
+      "imagen-4.0-generate-001": [
+        {
+          "ep": "us-central1",
+          "ms": 3955,
+          "b64len": 1045288
+        },
+        {
+          "ep": "us-south1",
+          "ms": 5268,
+          "b64len": 489292
+        },
+        {
+          "ep": "europe-west1",
+          "ms": 5678,
+          "b64len": 731912
+        },
+        {
+          "ep": "europe-west3",
+          "ms": 5834,
+          "b64len": 483272
+        },
+        {
+          "ep": "us-east1",
+          "ms": 6074,
+          "b64len": 503224
+        },
+        {
+          "ep": "northamerica-northeast1",
+          "ms": 6254,
+          "b64len": 1377384
+        },
+        {
+          "ep": "us-west1",
+          "ms": 6322,
+          "b64len": 1164288
+        },
+        {
+          "ep": "us-east4",
+          "ms": 6819,
+          "b64len": 850900
+        },
+        {
+          "ep": "us-west4",
+          "ms": 7219,
+          "b64len": 1073180
+        },
+        {
+          "ep": "australia-southeast1",
+          "ms": 8111,
+          "b64len": 725700
+        },
+        {
+          "ep": "europe-west4",
+          "ms": 8159,
+          "b64len": 645284
+        },
+        {
+          "ep": "asia-northeast1",
+          "ms": 8369,
+          "b64len": 720576
+        },
+        {
+          "ep": "europe-west2",
+          "ms": 8903,
+          "b64len": 431476
+        },
+        {
+          "ep": "asia-southeast1",
+          "ms": 8931,
+          "b64len": 610528
+        },
+        {
+          "ep": "asia-northeast3",
+          "ms": 9332,
+          "b64len": 637084
+        },
+        {
+          "ep": "europe-west9",
+          "ms": 9425,
+          "b64len": 381248
+        },
+        {
+          "ep": "asia-south1",
+          "ms": 9791,
+          "b64len": 1010016
+        },
+        {
+          "ep": "southamerica-east1",
+          "ms": 11801,
+          "b64len": 416684
+        },
+        {
+          "ep": "global",
+          "ms": 15824,
+          "b64len": 415432
+        }
+      ],
+      "imagen-4.0-ultra-generate-001": [
+        {
+          "ep": "us-east5",
+          "ms": 6844,
+          "b64len": 1016368
+        },
+        {
+          "ep": "global",
+          "ms": 7188,
+          "b64len": 682260
+        },
+        {
+          "ep": "us-east4",
+          "ms": 8221,
+          "b64len": 1094404
+        },
+        {
+          "ep": "australia-southeast1",
+          "ms": 8536,
+          "b64len": 345332
+        },
+        {
+          "ep": "us-central1",
+          "ms": 8708,
+          "b64len": 714888
+        },
+        {
+          "ep": "us-south1",
+          "ms": 8845,
+          "b64len": 675368
+        },
+        {
+          "ep": "us-west4",
+          "ms": 9055,
+          "b64len": 1100412
+        },
+        {
+          "ep": "us-west1",
+          "ms": 9256,
+          "b64len": 786092
+        },
+        {
+          "ep": "europe-west2",
+          "ms": 9465,
+          "b64len": 1008724
+        },
+        {
+          "ep": "asia-northeast3",
+          "ms": 9515,
+          "b64len": 1174600
+        },
+        {
+          "ep": "asia-northeast1",
+          "ms": 9790,
+          "b64len": 398148
+        },
+        {
+          "ep": "northamerica-northeast1",
+          "ms": 9994,
+          "b64len": 336960
+        },
+        {
+          "ep": "asia-southeast1",
+          "ms": 10555,
+          "b64len": 1186300
+        },
+        {
+          "ep": "europe-west1",
+          "ms": 11513,
+          "b64len": 380016
+        },
+        {
+          "ep": "europe-west3",
+          "ms": 11695,
+          "b64len": 376080
+        },
+        {
+          "ep": "asia-south1",
+          "ms": 11871,
+          "b64len": 1176516
+        },
+        {
+          "ep": "europe-west4",
+          "ms": 12253,
+          "b64len": 960296
+        },
+        {
+          "ep": "southamerica-east1",
+          "ms": 12464,
+          "b64len": 382768
+        },
+        {
+          "ep": "europe-west9",
+          "ms": 15363,
+          "b64len": 410984
+        },
+        {
+          "ep": "us-east1",
+          "ms": 27725,
+          "b64len": 480748
+        }
+      ],
+      "imagen-4.0-fast-generate-001": [
+        {
+          "ep": "us-central1",
+          "ms": 3399,
+          "b64len": 1021772
+        },
+        {
+          "ep": "europe-west1",
+          "ms": 3449,
+          "b64len": 772252
+        },
+        {
+          "ep": "us-west4",
+          "ms": 3881,
+          "b64len": 521036
+        },
+        {
+          "ep": "us-south1",
+          "ms": 3906,
+          "b64len": 748636
+        },
+        {
+          "ep": "europe-west4",
+          "ms": 4008,
+          "b64len": 760028
+        },
+        {
+          "ep": "europe-west9",
+          "ms": 4069,
+          "b64len": 853920
+        },
+        {
+          "ep": "us-east4",
+          "ms": 4172,
+          "b64len": 1208532
+        },
+        {
+          "ep": "us-west1",
+          "ms": 4273,
+          "b64len": 1174900
+        },
+        {
+          "ep": "europe-west3",
+          "ms": 4281,
+          "b64len": 895040
+        },
+        {
+          "ep": "europe-west2",
+          "ms": 4395,
+          "b64len": 1297360
+        },
+        {
+          "ep": "us-east1",
+          "ms": 4413,
+          "b64len": 823076
+        },
+        {
+          "ep": "northamerica-northeast1",
+          "ms": 4948,
+          "b64len": 1125576
+        },
+        {
+          "ep": "us-east5",
+          "ms": 5291,
+          "b64len": 816660
+        },
+        {
+          "ep": "australia-southeast1",
+          "ms": 5393,
+          "b64len": 826008
+        },
+        {
+          "ep": "asia-south1",
+          "ms": 5488,
+          "b64len": 916676
+        },
+        {
+          "ep": "asia-northeast3",
+          "ms": 6313,
+          "b64len": 1106212
+        },
+        {
+          "ep": "asia-northeast1",
+          "ms": 6510,
+          "b64len": 1079980
+        },
+        {
+          "ep": "asia-southeast1",
+          "ms": 6680,
+          "b64len": 498736
+        },
+        {
+          "ep": "southamerica-east1",
+          "ms": 7469,
+          "b64len": 1066256
+        },
+        {
+          "ep": "global",
+          "ms": 13181,
+          "b64len": 809248
+        }
+      ]
+    },
+    "video": {
+      "veo-3.1-fast-generate-001": [
+        {
+          "ep": "us-central1",
+          "ms": 362,
+          "detail": "iniciou OK, timeout no poll (init=362ms)"
+        },
+        {
+          "ep": "global",
+          "ms": 10356,
+          "detail": "DONE init=10356ms total=132151ms uri=gs://<redacted>"
+        }
+      ],
+      "veo-3.1-generate-001": [
+        {
+          "ep": "global",
+          "ms": 165,
+          "detail": "iniciou OK, timeout no poll (init=165ms)"
+        },
+        {
+          "ep": "us-central1",
+          "ms": 192,
+          "detail": "DONE init=192ms total=61870ms uri=gs://<redacted>"
+        }
+      ],
+      "veo-3.1-lite-generate-001": [
+        {
+          "ep": "global",
+          "ms": 158,
+          "detail": "DONE init=158ms total=122071ms uri=gs://<redacted>"
+        },
+        {
+          "ep": "us-central1",
+          "ms": 184,
+          "detail": "DONE init=184ms total=82701ms uri=gs://<redacted>"
+        }
+      ]
+    }
+  },
+  "cov": {
+    "text": {
+      "global": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite",
+        "gemini-3.5-flash",
+        "gemini-3.1-pro-preview",
+        "gemini-3.1-flash-lite",
+        "gemini-3-flash-preview"
+      ],
+      "us": [
+        "gemini-3.5-flash",
+        "gemini-3.1-flash-lite"
+      ],
+      "eu": [
+        "gemini-3.5-flash",
+        "gemini-3.1-flash-lite"
+      ],
+      "us-west1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "us-west4": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "us-central1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "us-east1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "us-east4": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "us-east5": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "us-south1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "northamerica-northeast1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash"
+      ],
+      "southamerica-east1": [
+        "gemini-2.5-flash"
+      ],
+      "europe-west1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "europe-west2": [
+        "gemini-2.5-flash",
+        "gemini-3.5-flash"
+      ],
+      "europe-west3": [
+        "gemini-2.5-flash"
+      ],
+      "europe-west4": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "europe-west8": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "europe-west9": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "europe-north1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "europe-central2": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "europe-southwest1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "asia-south1": [
+        "gemini-2.5-flash",
+        "gemini-3.5-flash"
+      ],
+      "asia-southeast1": [
+        "gemini-2.5-flash",
+        "gemini-3.5-flash"
+      ],
+      "asia-northeast1": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-3.5-flash"
+      ],
+      "asia-northeast3": [
+        "gemini-2.5-flash"
+      ],
+      "australia-southeast1": [
+        "gemini-2.5-flash"
+      ]
+    },
+    "image": {
+      "global": [
+        "gemini-2.5-flash-image",
+        "gemini-3-pro-image",
+        "gemini-3.1-flash-image",
+        "gemini-3.1-flash-lite-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "us-west1": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "us-west4": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "us-central1": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "us-east1": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "us-east4": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "us-east5": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "us-south1": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "northamerica-northeast1": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "southamerica-east1": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "europe-west1": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "europe-west2": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "europe-west3": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "europe-west4": [
+        "gemini-2.5-flash-image",
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "europe-west8": [
+        "gemini-2.5-flash-image"
+      ],
+      "europe-west9": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "europe-north1": [
+        "gemini-2.5-flash-image"
+      ],
+      "europe-central2": [
+        "gemini-2.5-flash-image"
+      ],
+      "europe-southwest1": [
+        "gemini-2.5-flash-image"
+      ],
+      "asia-south1": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "asia-southeast1": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "asia-northeast1": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "asia-northeast3": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ],
+      "australia-southeast1": [
+        "imagen-4.0-generate-001",
+        "imagen-4.0-ultra-generate-001",
+        "imagen-4.0-fast-generate-001"
+      ]
+    },
+    "video": {
+      "global": [
+        "veo-3.1-fast-generate-001",
+        "veo-3.1-generate-001",
+        "veo-3.1-lite-generate-001"
+      ],
+      "us-central1": [
+        "veo-3.1-fast-generate-001",
+        "veo-3.1-generate-001",
+        "veo-3.1-lite-generate-001"
+      ]
+    }
+  },
+  "mr": [
+    {
+      "loc": "us",
+      "mode": null,
+      "normal": "model-404",
+      "base": "model-404",
+      "baseUrl": "https://aiplatform.us.rep.googleapis.com"
+    },
+    {
+      "loc": "eu",
+      "mode": null,
+      "normal": "model-404",
+      "base": "model-404",
+      "baseUrl": "https://aiplatform.eu.rep.googleapis.com"
+    }
+  ],
+  "master": [
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 2513,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us-west1",
+      "ok": true,
+      "ms": 2590,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us-west4",
+      "ok": true,
+      "ms": 2565,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 1785,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us-east1",
+      "ok": true,
+      "ms": 2549,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us-east4",
+      "ok": true,
+      "ms": 2300,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us-east5",
+      "ok": true,
+      "ms": 2171,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "us-south1",
+      "ok": true,
+      "ms": 2122,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "northamerica-northeast1",
+      "ok": true,
+      "ms": 1826,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-west1",
+      "ok": true,
+      "ms": 2582,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-west4",
+      "ok": true,
+      "ms": 2570,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-west8",
+      "ok": true,
+      "ms": 3133,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-west9",
+      "ok": true,
+      "ms": 2664,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-north1",
+      "ok": true,
+      "ms": 3167,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-central2",
+      "ok": true,
+      "ms": 2520,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "europe-southwest1",
+      "ok": true,
+      "ms": 2978,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "asia-northeast1",
+      "ok": true,
+      "ms": 3454,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-pro",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 1759,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us-west1",
+      "ok": true,
+      "ms": 1024,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us-west4",
+      "ok": true,
+      "ms": 669,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 615,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us-east1",
+      "ok": true,
+      "ms": 699,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us-east4",
+      "ok": true,
+      "ms": 579,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us-east5",
+      "ok": true,
+      "ms": 507,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "us-south1",
+      "ok": true,
+      "ms": 566,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "northamerica-northeast1",
+      "ok": true,
+      "ms": 539,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "southamerica-east1",
+      "ok": true,
+      "ms": 695,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-west1",
+      "ok": true,
+      "ms": 572,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-west2",
+      "ok": true,
+      "ms": 509,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-west3",
+      "ok": true,
+      "ms": 406,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-west4",
+      "ok": true,
+      "ms": 823,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-west8",
+      "ok": true,
+      "ms": 927,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-west9",
+      "ok": true,
+      "ms": 1217,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-north1",
+      "ok": true,
+      "ms": 1101,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-central2",
+      "ok": true,
+      "ms": 970,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "europe-southwest1",
+      "ok": true,
+      "ms": 927,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "asia-south1",
+      "ok": true,
+      "ms": 1006,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "asia-southeast1",
+      "ok": true,
+      "ms": 533,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "asia-northeast1",
+      "ok": true,
+      "ms": 629,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "asia-northeast3",
+      "ok": true,
+      "ms": 1071,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "australia-southeast1",
+      "ok": true,
+      "ms": 828,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 301,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us-west1",
+      "ok": true,
+      "ms": 470,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us-west4",
+      "ok": true,
+      "ms": 454,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 499,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us-east1",
+      "ok": true,
+      "ms": 367,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us-east4",
+      "ok": true,
+      "ms": 345,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us-east5",
+      "ok": true,
+      "ms": 392,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "us-south1",
+      "ok": true,
+      "ms": 369,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-west1",
+      "ok": true,
+      "ms": 283,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-west4",
+      "ok": true,
+      "ms": 361,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-west8",
+      "ok": true,
+      "ms": 359,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-west9",
+      "ok": true,
+      "ms": 341,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-north1",
+      "ok": true,
+      "ms": 475,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-central2",
+      "ok": true,
+      "ms": 382,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "europe-southwest1",
+      "ok": true,
+      "ms": 381,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-2.5-flash-lite",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 921,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us(normal)",
+      "ok": true,
+      "ms": 841,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us(baseUrl)",
+      "ok": true,
+      "ms": 2517,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "eu(normal)",
+      "ok": true,
+      "ms": 1115,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "eu(baseUrl)",
+      "ok": true,
+      "ms": 1251,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-west2",
+      "ok": true,
+      "ms": 426,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "asia-south1",
+      "ok": true,
+      "ms": 824,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "asia-southeast1",
+      "ok": true,
+      "ms": 973,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "asia-northeast1",
+      "ok": true,
+      "ms": 713,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.5-flash",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 2630,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-pro-preview",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 706,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us(normal)",
+      "ok": true,
+      "ms": 623,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us(baseUrl)",
+      "ok": true,
+      "ms": 4078,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "eu(normal)",
+      "ok": true,
+      "ms": 1479,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "eu(baseUrl)",
+      "ok": true,
+      "ms": 1056,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3.1-flash-lite",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 913,
+      "status": 200,
+      "kind": "OK",
+      "detail": "OK"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "text",
+      "model": "gemini-3-flash-preview",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 13457,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=807720"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us-west1",
+      "ok": true,
+      "ms": 5190,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=357724"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us-west4",
+      "ok": true,
+      "ms": 4965,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=200928"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 5033,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=994836"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us-east1",
+      "ok": true,
+      "ms": 5029,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=951432"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us-east4",
+      "ok": true,
+      "ms": 5497,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=1327832"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us-east5",
+      "ok": true,
+      "ms": 5227,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=1013392"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "us-south1",
+      "ok": true,
+      "ms": 5081,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=926300"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-west1",
+      "ok": true,
+      "ms": 5344,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=955760"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-west4",
+      "ok": true,
+      "ms": 5779,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=1224828"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-west8",
+      "ok": true,
+      "ms": 4936,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=241956"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-north1",
+      "ok": true,
+      "ms": 5144,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=412216"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-central2",
+      "ok": true,
+      "ms": 5902,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=967472"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "europe-southwest1",
+      "ok": true,
+      "ms": 4836,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=251908"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-2.5-flash-image",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 15901,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=128240"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3-pro-image",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 9737,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=1442544"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-image",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 2737,
+      "status": 200,
+      "kind": "OK",
+      "detail": "img b64len=27408"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "gemini-3.1-flash-lite-image",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 15824,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=415432"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us-west1",
+      "ok": true,
+      "ms": 6322,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1164288"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us-west4",
+      "ok": true,
+      "ms": 7219,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1073180"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 3955,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1045288"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us-east1",
+      "ok": true,
+      "ms": 6074,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=503224"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us-east4",
+      "ok": true,
+      "ms": 6819,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=850900"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 200,
+      "kind": "rai-filtered",
+      "detail": "RAI filtered (Imagen recusou o prompt)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "us-south1",
+      "ok": true,
+      "ms": 5268,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=489292"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "northamerica-northeast1",
+      "ok": true,
+      "ms": 6254,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1377384"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "southamerica-east1",
+      "ok": true,
+      "ms": 11801,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=416684"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-west1",
+      "ok": true,
+      "ms": 5678,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=731912"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-west2",
+      "ok": true,
+      "ms": 8903,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=431476"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-west3",
+      "ok": true,
+      "ms": 5834,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=483272"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-west4",
+      "ok": true,
+      "ms": 8159,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=645284"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-west9",
+      "ok": true,
+      "ms": 9425,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=381248"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "asia-south1",
+      "ok": true,
+      "ms": 9791,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1010016"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "asia-southeast1",
+      "ok": true,
+      "ms": 8931,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=610528"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "asia-northeast1",
+      "ok": true,
+      "ms": 8369,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=720576"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "asia-northeast3",
+      "ok": true,
+      "ms": 9332,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=637084"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "australia-southeast1",
+      "ok": true,
+      "ms": 8111,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=725700"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-generate-001",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 7188,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=682260"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us-west1",
+      "ok": true,
+      "ms": 9256,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=786092"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us-west4",
+      "ok": true,
+      "ms": 9055,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1100412"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 8708,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=714888"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us-east1",
+      "ok": true,
+      "ms": 27725,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=480748"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us-east4",
+      "ok": true,
+      "ms": 8221,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1094404"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us-east5",
+      "ok": true,
+      "ms": 6844,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1016368"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "us-south1",
+      "ok": true,
+      "ms": 8845,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=675368"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "northamerica-northeast1",
+      "ok": true,
+      "ms": 9994,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=336960"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "southamerica-east1",
+      "ok": true,
+      "ms": 12464,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=382768"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-west1",
+      "ok": true,
+      "ms": 11513,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=380016"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-west2",
+      "ok": true,
+      "ms": 9465,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1008724"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-west3",
+      "ok": true,
+      "ms": 11695,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=376080"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-west4",
+      "ok": true,
+      "ms": 12253,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=960296"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-west9",
+      "ok": true,
+      "ms": 15363,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=410984"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "asia-south1",
+      "ok": true,
+      "ms": 11871,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1176516"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "asia-southeast1",
+      "ok": true,
+      "ms": 10555,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1186300"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "asia-northeast1",
+      "ok": true,
+      "ms": 9790,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=398148"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "asia-northeast3",
+      "ok": true,
+      "ms": 9515,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1174600"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "australia-southeast1",
+      "ok": true,
+      "ms": 8536,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=345332"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-ultra-generate-001",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 13181,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=809248"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us-west1",
+      "ok": true,
+      "ms": 4273,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1174900"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us-west4",
+      "ok": true,
+      "ms": 3881,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=521036"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 3399,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1021772"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us-east1",
+      "ok": true,
+      "ms": 4413,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=823076"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us-east4",
+      "ok": true,
+      "ms": 4172,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1208532"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us-east5",
+      "ok": true,
+      "ms": 5291,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=816660"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "us-south1",
+      "ok": true,
+      "ms": 3906,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=748636"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "northamerica-northeast1",
+      "ok": true,
+      "ms": 4948,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1125576"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "southamerica-east1",
+      "ok": true,
+      "ms": 7469,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1066256"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-west1",
+      "ok": true,
+      "ms": 3449,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=772252"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-west2",
+      "ok": true,
+      "ms": 4395,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1297360"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-west3",
+      "ok": true,
+      "ms": 4281,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=895040"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-west4",
+      "ok": true,
+      "ms": 4008,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=760028"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-west9",
+      "ok": true,
+      "ms": 4069,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=853920"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "asia-south1",
+      "ok": true,
+      "ms": 5488,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=916676"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "asia-southeast1",
+      "ok": true,
+      "ms": 6680,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=498736"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "asia-northeast1",
+      "ok": true,
+      "ms": 6510,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1079980"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "asia-northeast3",
+      "ok": true,
+      "ms": 6313,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=1106212"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "australia-southeast1",
+      "ok": true,
+      "ms": 5393,
+      "status": 200,
+      "kind": "OK",
+      "detail": "imagen b64len=826008"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "image",
+      "model": "imagen-4.0-fast-generate-001",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 10356,
+      "status": 200,
+      "kind": "OK",
+      "detail": "DONE init=10356ms total=132151ms uri=gs://<redacted>"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 362,
+      "status": 200,
+      "kind": "OK",
+      "detail": "iniciou OK, timeout no poll (init=362ms)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 165,
+      "status": 200,
+      "kind": "OK",
+      "detail": "iniciou OK, timeout no poll (init=165ms)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 192,
+      "status": 200,
+      "kind": "OK",
+      "detail": "DONE init=192ms total=61870ms uri=gs://<redacted>"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-generate-001",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "global",
+      "ok": true,
+      "ms": 158,
+      "status": 200,
+      "kind": "OK",
+      "detail": "DONE init=158ms total=122071ms uri=gs://<redacted>"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "eu(normal)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "eu(baseUrl)",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us-central1",
+      "ok": true,
+      "ms": 184,
+      "status": 200,
+      "kind": "OK",
+      "detail": "DONE init=184ms total=82701ms uri=gs://<redacted>"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us-east4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us-east5",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "us-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "northamerica-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "southamerica-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-west2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-west3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-west4",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-west6",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-west8",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-west9",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-north1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "europe-southwest1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "asia-east1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "asia-east2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "asia-south1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "asia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "asia-northeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "asia-northeast3",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "australia-southeast1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "me-west1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "me-central1",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    },
+    {
+      "modality": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "endpoint": "me-central2",
+      "ok": false,
+      "ms": null,
+      "status": 404,
+      "kind": "model-404",
+      "detail": "model-404 (modelo indisponivel neste endpoint)"
+    }
+  ]
+}

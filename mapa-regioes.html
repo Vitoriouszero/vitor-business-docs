@@ -1,0 +1,874 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa Vertex AI — Regioes x Modelos x Latencia</title>
+<style>
+:root{color-scheme:light dark;--bg:#0d1117;--panel:#161b22;--fg:#e6edf3;--muted:#9198a1;--bd:#30363d;--ok:#2ea043;--okbg:#0f2a17;--e404:#6e7681;--rai:#d29922;--accent:#4493f8}
+@media (prefers-color-scheme:light){:root{--bg:#ffffff;--panel:#f6f8fa;--fg:#1f2328;--muted:#59636e;--bd:#d1d9e0;--ok:#1a7f37;--okbg:#dafbe1;--e404:#a0a8b0;--rai:#9a6700;--accent:#0969da}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 18px 80px}
+h1{font-size:26px;margin:0 0 6px}h2{font-size:20px;margin:38px 0 12px;padding-top:14px;border-top:1px solid var(--bd)}h3{font-size:16px;margin:22px 0 8px;color:var(--accent)}
+.lead{color:var(--muted);margin:0 0 4px}
+code{background:var(--panel);border:1px solid var(--bd);border-radius:5px;padding:1px 5px;font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.tblwrap{overflow-x:auto;border:1px solid var(--bd);border-radius:8px;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--bd);white-space:nowrap}
+thead th{position:sticky;top:0;background:var(--panel);z-index:1}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.cok{color:var(--ok);font-weight:600;font-variant-numeric:tabular-nums}
+.c404{color:var(--e404)}
+.crai{color:var(--rai);font-weight:600}
+.kpis{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.kpi{background:var(--panel);border:1px solid var(--bd);border-radius:8px;padding:10px 14px;min-width:120px}
+.kpi b{display:block;font-size:22px}.kpi span{color:var(--muted);font-size:12px}
+.note{color:var(--muted);font-size:13px;margin:6px 0}
+.matcell{text-align:right;font-variant-numeric:tabular-nums}
+.toc a{color:var(--accent);text-decoration:none}.toc{columns:2;font-size:14px}
+footer{margin-top:40px;color:var(--muted);font-size:13px;border-top:1px solid var(--bd);padding-top:14px}
+</style></head><body><div class="wrap">
+<h1>Mapa Vertex AI — Regioes &times; Modelos &times; Latencia</h1>
+<p class="lead">Diagnostico serial de disponibilidade e latencia. <b>578</b> combinacoes (32 endpoints &times; modelos texto/imagem/video). Publicado em 2026-07-17.</p>
+<p class="note">Documento estatico (sem JavaScript) gerado do <code>report_data.json</code> original. Dados sanitizados. Legivel integralmente por qualquer cliente HTTP/IA.</p>
+<div class="kpis">
+<div class="kpi"><b>578</b><span>celulas testadas</span></div>
+<div class="kpi"><b style="color:var(--ok)">154</b><span>sucessos</span></div>
+<div class="kpi"><b>423</b><span>404 (indisponivel)</span></div>
+<div class="kpi"><b style="color:var(--rai)">1</b><span>RAI filtrado</span></div>
+<div class="kpi"><b>32</b><span>endpoints</span></div>
+</div>
+<h2>Secoes</h2><div class="toc">
+<div><a href="#s1">1. Resumo executivo</a></div>
+<div><a href="#s2">2. Como ler</a></div>
+<div><a href="#s3">3. Texto — ranking por modelo</a></div>
+<div><a href="#s4">4. Imagem — ranking por modelo</a></div>
+<div><a href="#s5">5. Video — ranking por modelo</a></div>
+<div><a href="#s6">6. Matriz completa regiao x modelo</a></div>
+<div><a href="#s7">7. Cobertura por regiao</a></div>
+<div><a href="#s8">8. Multi-regionais us/eu</a></div>
+<div><a href="#s9">9. Metodologia e sanitizacao</a></div>
+</div>
+<h2 id="s1">1. Resumo executivo</h2>
+<div class="tblwrap"><table><tbody>
+<tr><td>Total de celulas testadas</td><td class="num">578</td></tr>
+<tr><td>Sucessos (HTTP 200 utilizavel)</td><td class="num">154</td></tr>
+<tr><td>Falhas</td><td class="num">424</td></tr>
+<tr><td>— modelo indisponivel (404)</td><td class="num">423</td></tr>
+<tr><td>— filtrado por RAI</td><td class="num">1</td></tr>
+<tr><td>Endpoints distintos</td><td class="num">32</td></tr>
+<tr><td>Modelos de texto</td><td class="num">7</td></tr>
+<tr><td>Modelos de imagem</td><td class="num">7</td></tr>
+<tr><td>Modelos de video</td><td class="num">3</td></tr>
+</tbody></table></div>
+<p class="note">A grande maioria das falhas (423 de 424) e o modelo nao existir naquele endpoint. Familias 2.5 (texto/imagem) e Imagen 4.0 tem ampla cobertura regional; os modelos "3.x" de texto respondem sobretudo em <code>global</code>. Video (Veo 3.1) so em <code>global</code> e <code>us-central1</code>.</p>
+<h2 id="s2">2. Como ler este relatorio</h2>
+<ul>
+<li><b>endpoint</b>: regiao da Vertex AI (<code>us-central1</code>) ou o roteamento <code>global</code>. <code>us</code>/<code>eu</code> = multi-regionais; <code>(normal)</code>/<code>(baseUrl)</code> = dois metodos de chamada.</li>
+<li><b>latencia (ms)</b>: texto = ate a resposta; imagem = ate os bytes; video = tempo de inicializacao do job (<code>init</code>), com <code>total</code> do render quando concluido.</li>
+<li><b>404</b> = modelo nao publicado no endpoint. <b>RAI</b> = chamada 200 porem bloqueada pelo filtro Responsible AI.</li>
+<li>Listas por modelo ordenadas da menor para a maior latencia e <b>completas</b> (sem abreviacao).</li>
+</ul>
+<h2 id="s3">3. Modelos de Texto — ranking completo por modelo</h2>
+<h3><code>gemini-2.5-pro</code></h3>
+<p class="note">Responde em <b>17</b> endpoint(s). Melhor: <code>us-central1</code> (1.78 s) &middot; Pior: <code>asia-northeast1</code> (3.45 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>us-central1</code></td><td class="num cok">1785</td></tr>
+<tr><td class="num">2</td><td><code>northamerica-northeast1</code></td><td class="num cok">1826</td></tr>
+<tr><td class="num">3</td><td><code>us-south1</code></td><td class="num cok">2122</td></tr>
+<tr><td class="num">4</td><td><code>us-east5</code></td><td class="num cok">2171</td></tr>
+<tr><td class="num">5</td><td><code>us-east4</code></td><td class="num cok">2300</td></tr>
+<tr><td class="num">6</td><td><code>global</code></td><td class="num cok">2513</td></tr>
+<tr><td class="num">7</td><td><code>europe-central2</code></td><td class="num cok">2520</td></tr>
+<tr><td class="num">8</td><td><code>us-east1</code></td><td class="num cok">2549</td></tr>
+<tr><td class="num">9</td><td><code>us-west4</code></td><td class="num cok">2565</td></tr>
+<tr><td class="num">10</td><td><code>europe-west4</code></td><td class="num cok">2570</td></tr>
+<tr><td class="num">11</td><td><code>europe-west1</code></td><td class="num cok">2582</td></tr>
+<tr><td class="num">12</td><td><code>us-west1</code></td><td class="num cok">2590</td></tr>
+<tr><td class="num">13</td><td><code>europe-west9</code></td><td class="num cok">2664</td></tr>
+<tr><td class="num">14</td><td><code>europe-southwest1</code></td><td class="num cok">2978</td></tr>
+<tr><td class="num">15</td><td><code>europe-west8</code></td><td class="num cok">3133</td></tr>
+<tr><td class="num">16</td><td><code>europe-north1</code></td><td class="num cok">3167</td></tr>
+<tr><td class="num">17</td><td><code>asia-northeast1</code></td><td class="num cok">3454</td></tr>
+</tbody></table></div>
+<h3><code>gemini-2.5-flash</code></h3>
+<p class="note">Responde em <b>24</b> endpoint(s). Melhor: <code>europe-west3</code> (406 ms) &middot; Pior: <code>global</code> (1.76 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>europe-west3</code></td><td class="num cok">406</td></tr>
+<tr><td class="num">2</td><td><code>us-east5</code></td><td class="num cok">507</td></tr>
+<tr><td class="num">3</td><td><code>europe-west2</code></td><td class="num cok">509</td></tr>
+<tr><td class="num">4</td><td><code>asia-southeast1</code></td><td class="num cok">533</td></tr>
+<tr><td class="num">5</td><td><code>northamerica-northeast1</code></td><td class="num cok">539</td></tr>
+<tr><td class="num">6</td><td><code>us-south1</code></td><td class="num cok">566</td></tr>
+<tr><td class="num">7</td><td><code>europe-west1</code></td><td class="num cok">572</td></tr>
+<tr><td class="num">8</td><td><code>us-east4</code></td><td class="num cok">579</td></tr>
+<tr><td class="num">9</td><td><code>us-central1</code></td><td class="num cok">615</td></tr>
+<tr><td class="num">10</td><td><code>asia-northeast1</code></td><td class="num cok">629</td></tr>
+<tr><td class="num">11</td><td><code>us-west4</code></td><td class="num cok">669</td></tr>
+<tr><td class="num">12</td><td><code>southamerica-east1</code></td><td class="num cok">695</td></tr>
+<tr><td class="num">13</td><td><code>us-east1</code></td><td class="num cok">699</td></tr>
+<tr><td class="num">14</td><td><code>europe-west4</code></td><td class="num cok">823</td></tr>
+<tr><td class="num">15</td><td><code>australia-southeast1</code></td><td class="num cok">828</td></tr>
+<tr><td class="num">16</td><td><code>europe-west8</code></td><td class="num cok">927</td></tr>
+<tr><td class="num">17</td><td><code>europe-southwest1</code></td><td class="num cok">927</td></tr>
+<tr><td class="num">18</td><td><code>europe-central2</code></td><td class="num cok">970</td></tr>
+<tr><td class="num">19</td><td><code>asia-south1</code></td><td class="num cok">1006</td></tr>
+<tr><td class="num">20</td><td><code>us-west1</code></td><td class="num cok">1024</td></tr>
+<tr><td class="num">21</td><td><code>asia-northeast3</code></td><td class="num cok">1071</td></tr>
+<tr><td class="num">22</td><td><code>europe-north1</code></td><td class="num cok">1101</td></tr>
+<tr><td class="num">23</td><td><code>europe-west9</code></td><td class="num cok">1217</td></tr>
+<tr><td class="num">24</td><td><code>global</code></td><td class="num cok">1759</td></tr>
+</tbody></table></div>
+<h3><code>gemini-2.5-flash-lite</code></h3>
+<p class="note">Responde em <b>15</b> endpoint(s). Melhor: <code>europe-west1</code> (283 ms) &middot; Pior: <code>us-central1</code> (499 ms).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>europe-west1</code></td><td class="num cok">283</td></tr>
+<tr><td class="num">2</td><td><code>global</code></td><td class="num cok">301</td></tr>
+<tr><td class="num">3</td><td><code>europe-west9</code></td><td class="num cok">341</td></tr>
+<tr><td class="num">4</td><td><code>us-east4</code></td><td class="num cok">345</td></tr>
+<tr><td class="num">5</td><td><code>europe-west8</code></td><td class="num cok">359</td></tr>
+<tr><td class="num">6</td><td><code>europe-west4</code></td><td class="num cok">361</td></tr>
+<tr><td class="num">7</td><td><code>us-east1</code></td><td class="num cok">367</td></tr>
+<tr><td class="num">8</td><td><code>us-south1</code></td><td class="num cok">369</td></tr>
+<tr><td class="num">9</td><td><code>europe-southwest1</code></td><td class="num cok">381</td></tr>
+<tr><td class="num">10</td><td><code>europe-central2</code></td><td class="num cok">382</td></tr>
+<tr><td class="num">11</td><td><code>us-east5</code></td><td class="num cok">392</td></tr>
+<tr><td class="num">12</td><td><code>us-west4</code></td><td class="num cok">454</td></tr>
+<tr><td class="num">13</td><td><code>us-west1</code></td><td class="num cok">470</td></tr>
+<tr><td class="num">14</td><td><code>europe-north1</code></td><td class="num cok">475</td></tr>
+<tr><td class="num">15</td><td><code>us-central1</code></td><td class="num cok">499</td></tr>
+</tbody></table></div>
+<h3><code>gemini-3.5-flash</code></h3>
+<p class="note">Responde em <b>9</b> endpoint(s). Melhor: <code>europe-west2</code> (426 ms) &middot; Pior: <code>us(baseUrl)</code> (2.52 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>europe-west2</code></td><td class="num cok">426</td></tr>
+<tr><td class="num">2</td><td><code>asia-northeast1</code></td><td class="num cok">713</td></tr>
+<tr><td class="num">3</td><td><code>asia-south1</code></td><td class="num cok">824</td></tr>
+<tr><td class="num">4</td><td><code>us(normal)</code></td><td class="num cok">841</td></tr>
+<tr><td class="num">5</td><td><code>global</code></td><td class="num cok">921</td></tr>
+<tr><td class="num">6</td><td><code>asia-southeast1</code></td><td class="num cok">973</td></tr>
+<tr><td class="num">7</td><td><code>eu(normal)</code></td><td class="num cok">1115</td></tr>
+<tr><td class="num">8</td><td><code>eu(baseUrl)</code></td><td class="num cok">1251</td></tr>
+<tr><td class="num">9</td><td><code>us(baseUrl)</code></td><td class="num cok">2517</td></tr>
+</tbody></table></div>
+<h3><code>gemini-3.1-pro-preview</code></h3>
+<p class="note">Responde em <b>1</b> endpoint(s). Melhor: <code>global</code> (2.63 s) &middot; Pior: <code>global</code> (2.63 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>global</code></td><td class="num cok">2630</td></tr>
+</tbody></table></div>
+<h3><code>gemini-3.1-flash-lite</code></h3>
+<p class="note">Responde em <b>5</b> endpoint(s). Melhor: <code>us(normal)</code> (623 ms) &middot; Pior: <code>us(baseUrl)</code> (4.08 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>us(normal)</code></td><td class="num cok">623</td></tr>
+<tr><td class="num">2</td><td><code>global</code></td><td class="num cok">706</td></tr>
+<tr><td class="num">3</td><td><code>eu(baseUrl)</code></td><td class="num cok">1056</td></tr>
+<tr><td class="num">4</td><td><code>eu(normal)</code></td><td class="num cok">1479</td></tr>
+<tr><td class="num">5</td><td><code>us(baseUrl)</code></td><td class="num cok">4078</td></tr>
+</tbody></table></div>
+<h3><code>gemini-3-flash-preview</code></h3>
+<p class="note">Responde em <b>1</b> endpoint(s). Melhor: <code>global</code> (913 ms) &middot; Pior: <code>global</code> (913 ms).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>global</code></td><td class="num cok">913</td></tr>
+</tbody></table></div>
+<h2 id="s4">4. Modelos de Imagem — ranking completo por modelo</h2>
+<h3><code>gemini-2.5-flash-image</code></h3>
+<p class="note">Responde em <b>14</b> endpoint(s). Melhor: <code>europe-southwest1</code> (4.84 s) &middot; Pior: <code>global</code> (13.5 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th class="num">Tam. b64</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>europe-southwest1</code></td><td class="num cok">4836</td><td class="num">251,908</td></tr>
+<tr><td class="num">2</td><td><code>europe-west8</code></td><td class="num cok">4936</td><td class="num">241,956</td></tr>
+<tr><td class="num">3</td><td><code>us-west4</code></td><td class="num cok">4965</td><td class="num">200,928</td></tr>
+<tr><td class="num">4</td><td><code>us-east1</code></td><td class="num cok">5029</td><td class="num">951,432</td></tr>
+<tr><td class="num">5</td><td><code>us-central1</code></td><td class="num cok">5033</td><td class="num">994,836</td></tr>
+<tr><td class="num">6</td><td><code>us-south1</code></td><td class="num cok">5081</td><td class="num">926,300</td></tr>
+<tr><td class="num">7</td><td><code>europe-north1</code></td><td class="num cok">5144</td><td class="num">412,216</td></tr>
+<tr><td class="num">8</td><td><code>us-west1</code></td><td class="num cok">5190</td><td class="num">357,724</td></tr>
+<tr><td class="num">9</td><td><code>us-east5</code></td><td class="num cok">5227</td><td class="num">1,013,392</td></tr>
+<tr><td class="num">10</td><td><code>europe-west1</code></td><td class="num cok">5344</td><td class="num">955,760</td></tr>
+<tr><td class="num">11</td><td><code>us-east4</code></td><td class="num cok">5497</td><td class="num">1,327,832</td></tr>
+<tr><td class="num">12</td><td><code>europe-west4</code></td><td class="num cok">5779</td><td class="num">1,224,828</td></tr>
+<tr><td class="num">13</td><td><code>europe-central2</code></td><td class="num cok">5902</td><td class="num">967,472</td></tr>
+<tr><td class="num">14</td><td><code>global</code></td><td class="num cok">13457</td><td class="num">807,720</td></tr>
+</tbody></table></div>
+<h3><code>gemini-3-pro-image</code></h3>
+<p class="note">Responde em <b>1</b> endpoint(s). Melhor: <code>global</code> (15.9 s) &middot; Pior: <code>global</code> (15.9 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th class="num">Tam. b64</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>global</code></td><td class="num cok">15901</td><td class="num">128,240</td></tr>
+</tbody></table></div>
+<h3><code>gemini-3.1-flash-image</code></h3>
+<p class="note">Responde em <b>1</b> endpoint(s). Melhor: <code>global</code> (9.74 s) &middot; Pior: <code>global</code> (9.74 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th class="num">Tam. b64</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>global</code></td><td class="num cok">9737</td><td class="num">1,442,544</td></tr>
+</tbody></table></div>
+<h3><code>gemini-3.1-flash-lite-image</code></h3>
+<p class="note">Responde em <b>1</b> endpoint(s). Melhor: <code>global</code> (2.74 s) &middot; Pior: <code>global</code> (2.74 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th class="num">Tam. b64</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>global</code></td><td class="num cok">2737</td><td class="num">27,408</td></tr>
+</tbody></table></div>
+<h3><code>imagen-4.0-generate-001</code></h3>
+<p class="note">Responde em <b>19</b> endpoint(s). Melhor: <code>us-central1</code> (3.96 s) &middot; Pior: <code>global</code> (15.8 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th class="num">Tam. b64</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>us-central1</code></td><td class="num cok">3955</td><td class="num">1,045,288</td></tr>
+<tr><td class="num">2</td><td><code>us-south1</code></td><td class="num cok">5268</td><td class="num">489,292</td></tr>
+<tr><td class="num">3</td><td><code>europe-west1</code></td><td class="num cok">5678</td><td class="num">731,912</td></tr>
+<tr><td class="num">4</td><td><code>europe-west3</code></td><td class="num cok">5834</td><td class="num">483,272</td></tr>
+<tr><td class="num">5</td><td><code>us-east1</code></td><td class="num cok">6074</td><td class="num">503,224</td></tr>
+<tr><td class="num">6</td><td><code>northamerica-northeast1</code></td><td class="num cok">6254</td><td class="num">1,377,384</td></tr>
+<tr><td class="num">7</td><td><code>us-west1</code></td><td class="num cok">6322</td><td class="num">1,164,288</td></tr>
+<tr><td class="num">8</td><td><code>us-east4</code></td><td class="num cok">6819</td><td class="num">850,900</td></tr>
+<tr><td class="num">9</td><td><code>us-west4</code></td><td class="num cok">7219</td><td class="num">1,073,180</td></tr>
+<tr><td class="num">10</td><td><code>australia-southeast1</code></td><td class="num cok">8111</td><td class="num">725,700</td></tr>
+<tr><td class="num">11</td><td><code>europe-west4</code></td><td class="num cok">8159</td><td class="num">645,284</td></tr>
+<tr><td class="num">12</td><td><code>asia-northeast1</code></td><td class="num cok">8369</td><td class="num">720,576</td></tr>
+<tr><td class="num">13</td><td><code>europe-west2</code></td><td class="num cok">8903</td><td class="num">431,476</td></tr>
+<tr><td class="num">14</td><td><code>asia-southeast1</code></td><td class="num cok">8931</td><td class="num">610,528</td></tr>
+<tr><td class="num">15</td><td><code>asia-northeast3</code></td><td class="num cok">9332</td><td class="num">637,084</td></tr>
+<tr><td class="num">16</td><td><code>europe-west9</code></td><td class="num cok">9425</td><td class="num">381,248</td></tr>
+<tr><td class="num">17</td><td><code>asia-south1</code></td><td class="num cok">9791</td><td class="num">1,010,016</td></tr>
+<tr><td class="num">18</td><td><code>southamerica-east1</code></td><td class="num cok">11801</td><td class="num">416,684</td></tr>
+<tr><td class="num">19</td><td><code>global</code></td><td class="num cok">15824</td><td class="num">415,432</td></tr>
+</tbody></table></div>
+<h3><code>imagen-4.0-ultra-generate-001</code></h3>
+<p class="note">Responde em <b>20</b> endpoint(s). Melhor: <code>us-east5</code> (6.84 s) &middot; Pior: <code>us-east1</code> (27.7 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th class="num">Tam. b64</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>us-east5</code></td><td class="num cok">6844</td><td class="num">1,016,368</td></tr>
+<tr><td class="num">2</td><td><code>global</code></td><td class="num cok">7188</td><td class="num">682,260</td></tr>
+<tr><td class="num">3</td><td><code>us-east4</code></td><td class="num cok">8221</td><td class="num">1,094,404</td></tr>
+<tr><td class="num">4</td><td><code>australia-southeast1</code></td><td class="num cok">8536</td><td class="num">345,332</td></tr>
+<tr><td class="num">5</td><td><code>us-central1</code></td><td class="num cok">8708</td><td class="num">714,888</td></tr>
+<tr><td class="num">6</td><td><code>us-south1</code></td><td class="num cok">8845</td><td class="num">675,368</td></tr>
+<tr><td class="num">7</td><td><code>us-west4</code></td><td class="num cok">9055</td><td class="num">1,100,412</td></tr>
+<tr><td class="num">8</td><td><code>us-west1</code></td><td class="num cok">9256</td><td class="num">786,092</td></tr>
+<tr><td class="num">9</td><td><code>europe-west2</code></td><td class="num cok">9465</td><td class="num">1,008,724</td></tr>
+<tr><td class="num">10</td><td><code>asia-northeast3</code></td><td class="num cok">9515</td><td class="num">1,174,600</td></tr>
+<tr><td class="num">11</td><td><code>asia-northeast1</code></td><td class="num cok">9790</td><td class="num">398,148</td></tr>
+<tr><td class="num">12</td><td><code>northamerica-northeast1</code></td><td class="num cok">9994</td><td class="num">336,960</td></tr>
+<tr><td class="num">13</td><td><code>asia-southeast1</code></td><td class="num cok">10555</td><td class="num">1,186,300</td></tr>
+<tr><td class="num">14</td><td><code>europe-west1</code></td><td class="num cok">11513</td><td class="num">380,016</td></tr>
+<tr><td class="num">15</td><td><code>europe-west3</code></td><td class="num cok">11695</td><td class="num">376,080</td></tr>
+<tr><td class="num">16</td><td><code>asia-south1</code></td><td class="num cok">11871</td><td class="num">1,176,516</td></tr>
+<tr><td class="num">17</td><td><code>europe-west4</code></td><td class="num cok">12253</td><td class="num">960,296</td></tr>
+<tr><td class="num">18</td><td><code>southamerica-east1</code></td><td class="num cok">12464</td><td class="num">382,768</td></tr>
+<tr><td class="num">19</td><td><code>europe-west9</code></td><td class="num cok">15363</td><td class="num">410,984</td></tr>
+<tr><td class="num">20</td><td><code>us-east1</code></td><td class="num cok">27725</td><td class="num">480,748</td></tr>
+</tbody></table></div>
+<h3><code>imagen-4.0-fast-generate-001</code></h3>
+<p class="note">Responde em <b>20</b> endpoint(s). Melhor: <code>us-central1</code> (3.40 s) &middot; Pior: <code>global</code> (13.2 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th class="num">Tam. b64</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>us-central1</code></td><td class="num cok">3399</td><td class="num">1,021,772</td></tr>
+<tr><td class="num">2</td><td><code>europe-west1</code></td><td class="num cok">3449</td><td class="num">772,252</td></tr>
+<tr><td class="num">3</td><td><code>us-west4</code></td><td class="num cok">3881</td><td class="num">521,036</td></tr>
+<tr><td class="num">4</td><td><code>us-south1</code></td><td class="num cok">3906</td><td class="num">748,636</td></tr>
+<tr><td class="num">5</td><td><code>europe-west4</code></td><td class="num cok">4008</td><td class="num">760,028</td></tr>
+<tr><td class="num">6</td><td><code>europe-west9</code></td><td class="num cok">4069</td><td class="num">853,920</td></tr>
+<tr><td class="num">7</td><td><code>us-east4</code></td><td class="num cok">4172</td><td class="num">1,208,532</td></tr>
+<tr><td class="num">8</td><td><code>us-west1</code></td><td class="num cok">4273</td><td class="num">1,174,900</td></tr>
+<tr><td class="num">9</td><td><code>europe-west3</code></td><td class="num cok">4281</td><td class="num">895,040</td></tr>
+<tr><td class="num">10</td><td><code>europe-west2</code></td><td class="num cok">4395</td><td class="num">1,297,360</td></tr>
+<tr><td class="num">11</td><td><code>us-east1</code></td><td class="num cok">4413</td><td class="num">823,076</td></tr>
+<tr><td class="num">12</td><td><code>northamerica-northeast1</code></td><td class="num cok">4948</td><td class="num">1,125,576</td></tr>
+<tr><td class="num">13</td><td><code>us-east5</code></td><td class="num cok">5291</td><td class="num">816,660</td></tr>
+<tr><td class="num">14</td><td><code>australia-southeast1</code></td><td class="num cok">5393</td><td class="num">826,008</td></tr>
+<tr><td class="num">15</td><td><code>asia-south1</code></td><td class="num cok">5488</td><td class="num">916,676</td></tr>
+<tr><td class="num">16</td><td><code>asia-northeast3</code></td><td class="num cok">6313</td><td class="num">1,106,212</td></tr>
+<tr><td class="num">17</td><td><code>asia-northeast1</code></td><td class="num cok">6510</td><td class="num">1,079,980</td></tr>
+<tr><td class="num">18</td><td><code>asia-southeast1</code></td><td class="num cok">6680</td><td class="num">498,736</td></tr>
+<tr><td class="num">19</td><td><code>southamerica-east1</code></td><td class="num cok">7469</td><td class="num">1,066,256</td></tr>
+<tr><td class="num">20</td><td><code>global</code></td><td class="num cok">13181</td><td class="num">809,248</td></tr>
+</tbody></table></div>
+<h2 id="s5">5. Modelos de Video — ranking completo por modelo</h2>
+<h3><code>veo-3.1-fast-generate-001</code></h3>
+<p class="note">Responde em <b>2</b> endpoint(s). Melhor: <code>us-central1</code> (362 ms) &middot; Pior: <code>global</code> (10.4 s).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th>Detalhe</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>us-central1</code></td><td class="num cok">362</td><td>iniciou OK, timeout no poll (init=362ms)</td></tr>
+<tr><td class="num">2</td><td><code>global</code></td><td class="num cok">10356</td><td>DONE init=10356ms total=132151ms uri=gs://&lt;redacted&gt;</td></tr>
+</tbody></table></div>
+<h3><code>veo-3.1-generate-001</code></h3>
+<p class="note">Responde em <b>2</b> endpoint(s). Melhor: <code>global</code> (165 ms) &middot; Pior: <code>us-central1</code> (192 ms).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th>Detalhe</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>global</code></td><td class="num cok">165</td><td>iniciou OK, timeout no poll (init=165ms)</td></tr>
+<tr><td class="num">2</td><td><code>us-central1</code></td><td class="num cok">192</td><td>DONE init=192ms total=61870ms uri=gs://&lt;redacted&gt;</td></tr>
+</tbody></table></div>
+<h3><code>veo-3.1-lite-generate-001</code></h3>
+<p class="note">Responde em <b>2</b> endpoint(s). Melhor: <code>global</code> (158 ms) &middot; Pior: <code>us-central1</code> (184 ms).</p>
+<div class="tblwrap"><table><thead><tr><th class="num">#</th><th>Endpoint</th><th class="num">Latencia (ms)</th>
+<th>Detalhe</th>
+</tr></thead><tbody>
+<tr><td class="num">1</td><td><code>global</code></td><td class="num cok">158</td><td>DONE init=158ms total=122071ms uri=gs://&lt;redacted&gt;</td></tr>
+<tr><td class="num">2</td><td><code>us-central1</code></td><td class="num cok">184</td><td>DONE init=184ms total=82701ms uri=gs://&lt;redacted&gt;</td></tr>
+</tbody></table></div>
+<h2 id="s6">6. Matriz completa: regiao &times; modelo (latencia em ms)</h2>
+<p class="note">Numero = latencia (ms) de sucesso; <span class="c404">404</span> = indisponivel; <span class="crai">RAI</span> = bloqueado. Endpoints sem nenhum sucesso listados abaixo de cada grade.</p>
+<h3>Texto</h3>
+<div class="tblwrap"><table><thead><tr><th>Endpoint</th>
+<th class="num" title="gemini-2.5-pro">g-2.5-pro</th>
+<th class="num" title="gemini-2.5-flash">g-2.5-flash</th>
+<th class="num" title="gemini-2.5-flash-lite">g-2.5-flash-lite</th>
+<th class="num" title="gemini-3.5-flash">g-3.5-flash</th>
+<th class="num" title="gemini-3.1-pro-preview">g-3.1-pro-preview</th>
+<th class="num" title="gemini-3.1-flash-lite">g-3.1-flash-lite</th>
+<th class="num" title="gemini-3-flash-preview">g-3-flash-preview</th>
+</tr></thead><tbody>
+<tr><td><code>global</code></td>
+<td class="matcell cok">2513</td>
+<td class="matcell cok">1759</td>
+<td class="matcell cok">301</td>
+<td class="matcell cok">921</td>
+<td class="matcell cok">2630</td>
+<td class="matcell cok">706</td>
+<td class="matcell cok">913</td>
+</tr>
+<tr><td><code>us-west1</code></td>
+<td class="matcell cok">2590</td>
+<td class="matcell cok">1024</td>
+<td class="matcell cok">470</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>us-west4</code></td>
+<td class="matcell cok">2565</td>
+<td class="matcell cok">669</td>
+<td class="matcell cok">454</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>us-central1</code></td>
+<td class="matcell cok">1785</td>
+<td class="matcell cok">615</td>
+<td class="matcell cok">499</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>us-east1</code></td>
+<td class="matcell cok">2549</td>
+<td class="matcell cok">699</td>
+<td class="matcell cok">367</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>us-east4</code></td>
+<td class="matcell cok">2300</td>
+<td class="matcell cok">579</td>
+<td class="matcell cok">345</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>us-east5</code></td>
+<td class="matcell cok">2171</td>
+<td class="matcell cok">507</td>
+<td class="matcell cok">392</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>us-south1</code></td>
+<td class="matcell cok">2122</td>
+<td class="matcell cok">566</td>
+<td class="matcell cok">369</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>northamerica-northeast1</code></td>
+<td class="matcell cok">1826</td>
+<td class="matcell cok">539</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>southamerica-east1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">695</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-west1</code></td>
+<td class="matcell cok">2582</td>
+<td class="matcell cok">572</td>
+<td class="matcell cok">283</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-west2</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">509</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">426</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-west3</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">406</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-west4</code></td>
+<td class="matcell cok">2570</td>
+<td class="matcell cok">823</td>
+<td class="matcell cok">361</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-west8</code></td>
+<td class="matcell cok">3133</td>
+<td class="matcell cok">927</td>
+<td class="matcell cok">359</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-west9</code></td>
+<td class="matcell cok">2664</td>
+<td class="matcell cok">1217</td>
+<td class="matcell cok">341</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-north1</code></td>
+<td class="matcell cok">3167</td>
+<td class="matcell cok">1101</td>
+<td class="matcell cok">475</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-central2</code></td>
+<td class="matcell cok">2520</td>
+<td class="matcell cok">970</td>
+<td class="matcell cok">382</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-southwest1</code></td>
+<td class="matcell cok">2978</td>
+<td class="matcell cok">927</td>
+<td class="matcell cok">381</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>asia-south1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">1006</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">824</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>asia-southeast1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">533</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">973</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>asia-northeast1</code></td>
+<td class="matcell cok">3454</td>
+<td class="matcell cok">629</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">713</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>asia-northeast3</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">1071</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>australia-southeast1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">828</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+</tbody></table></div>
+<p class="note">Endpoints sem nenhum modelo de texto (todos 404): <code>us(normal)</code>, <code>us(baseUrl)</code>, <code>eu(normal)</code>, <code>eu(baseUrl)</code>, <code>europe-west6</code>, <code>asia-east1</code>, <code>asia-east2</code>, <code>me-west1</code>, <code>me-central1</code>, <code>me-central2</code>.</p>
+<h3>Imagem</h3>
+<div class="tblwrap"><table><thead><tr><th>Endpoint</th>
+<th class="num" title="gemini-2.5-flash-image">g-2.5-flash-image</th>
+<th class="num" title="gemini-3-pro-image">g-3-pro-image</th>
+<th class="num" title="gemini-3.1-flash-image">g-3.1-flash-image</th>
+<th class="num" title="gemini-3.1-flash-lite-image">g-3.1-flash-lite-image</th>
+<th class="num" title="imagen-4.0-generate-001">imagen-4.0-generate-001</th>
+<th class="num" title="imagen-4.0-ultra-generate-001">imagen-4.0-ultra-generate-001</th>
+<th class="num" title="imagen-4.0-fast-generate-001">imagen-4.0-fast-generate-001</th>
+</tr></thead><tbody>
+<tr><td><code>global</code></td>
+<td class="matcell cok">13457</td>
+<td class="matcell cok">15901</td>
+<td class="matcell cok">9737</td>
+<td class="matcell cok">2737</td>
+<td class="matcell cok">15824</td>
+<td class="matcell cok">7188</td>
+<td class="matcell cok">13181</td>
+</tr>
+<tr><td><code>us-west1</code></td>
+<td class="matcell cok">5190</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">6322</td>
+<td class="matcell cok">9256</td>
+<td class="matcell cok">4273</td>
+</tr>
+<tr><td><code>us-west4</code></td>
+<td class="matcell cok">4965</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">7219</td>
+<td class="matcell cok">9055</td>
+<td class="matcell cok">3881</td>
+</tr>
+<tr><td><code>us-central1</code></td>
+<td class="matcell cok">5033</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">3955</td>
+<td class="matcell cok">8708</td>
+<td class="matcell cok">3399</td>
+</tr>
+<tr><td><code>us-east1</code></td>
+<td class="matcell cok">5029</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">6074</td>
+<td class="matcell cok">27725</td>
+<td class="matcell cok">4413</td>
+</tr>
+<tr><td><code>us-east4</code></td>
+<td class="matcell cok">5497</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">6819</td>
+<td class="matcell cok">8221</td>
+<td class="matcell cok">4172</td>
+</tr>
+<tr><td><code>us-east5</code></td>
+<td class="matcell cok">5227</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell crai">RAI</td>
+<td class="matcell cok">6844</td>
+<td class="matcell cok">5291</td>
+</tr>
+<tr><td><code>us-south1</code></td>
+<td class="matcell cok">5081</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">5268</td>
+<td class="matcell cok">8845</td>
+<td class="matcell cok">3906</td>
+</tr>
+<tr><td><code>northamerica-northeast1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">6254</td>
+<td class="matcell cok">9994</td>
+<td class="matcell cok">4948</td>
+</tr>
+<tr><td><code>southamerica-east1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">11801</td>
+<td class="matcell cok">12464</td>
+<td class="matcell cok">7469</td>
+</tr>
+<tr><td><code>europe-west1</code></td>
+<td class="matcell cok">5344</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">5678</td>
+<td class="matcell cok">11513</td>
+<td class="matcell cok">3449</td>
+</tr>
+<tr><td><code>europe-west2</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">8903</td>
+<td class="matcell cok">9465</td>
+<td class="matcell cok">4395</td>
+</tr>
+<tr><td><code>europe-west3</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">5834</td>
+<td class="matcell cok">11695</td>
+<td class="matcell cok">4281</td>
+</tr>
+<tr><td><code>europe-west4</code></td>
+<td class="matcell cok">5779</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">8159</td>
+<td class="matcell cok">12253</td>
+<td class="matcell cok">4008</td>
+</tr>
+<tr><td><code>europe-west8</code></td>
+<td class="matcell cok">4936</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-west9</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">9425</td>
+<td class="matcell cok">15363</td>
+<td class="matcell cok">4069</td>
+</tr>
+<tr><td><code>europe-north1</code></td>
+<td class="matcell cok">5144</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-central2</code></td>
+<td class="matcell cok">5902</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>europe-southwest1</code></td>
+<td class="matcell cok">4836</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+</tr>
+<tr><td><code>asia-south1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">9791</td>
+<td class="matcell cok">11871</td>
+<td class="matcell cok">5488</td>
+</tr>
+<tr><td><code>asia-southeast1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">8931</td>
+<td class="matcell cok">10555</td>
+<td class="matcell cok">6680</td>
+</tr>
+<tr><td><code>asia-northeast1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">8369</td>
+<td class="matcell cok">9790</td>
+<td class="matcell cok">6510</td>
+</tr>
+<tr><td><code>asia-northeast3</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">9332</td>
+<td class="matcell cok">9515</td>
+<td class="matcell cok">6313</td>
+</tr>
+<tr><td><code>australia-southeast1</code></td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell c404">404</td>
+<td class="matcell cok">8111</td>
+<td class="matcell cok">8536</td>
+<td class="matcell cok">5393</td>
+</tr>
+</tbody></table></div>
+<p class="note">Endpoints sem nenhum modelo de imagem (todos 404): <code>us(normal)</code>, <code>us(baseUrl)</code>, <code>eu(normal)</code>, <code>eu(baseUrl)</code>, <code>europe-west6</code>, <code>asia-east1</code>, <code>asia-east2</code>, <code>me-west1</code>, <code>me-central1</code>, <code>me-central2</code>.</p>
+<h3>Video</h3>
+<div class="tblwrap"><table><thead><tr><th>Endpoint</th>
+<th class="num" title="veo-3.1-fast-generate-001">veo-3.1-fast-generate-001</th>
+<th class="num" title="veo-3.1-generate-001">veo-3.1-generate-001</th>
+<th class="num" title="veo-3.1-lite-generate-001">veo-3.1-lite-generate-001</th>
+</tr></thead><tbody>
+<tr><td><code>global</code></td>
+<td class="matcell cok">10356</td>
+<td class="matcell cok">165</td>
+<td class="matcell cok">158</td>
+</tr>
+<tr><td><code>us-central1</code></td>
+<td class="matcell cok">362</td>
+<td class="matcell cok">192</td>
+<td class="matcell cok">184</td>
+</tr>
+</tbody></table></div>
+<p class="note">Endpoints sem nenhum modelo de video (todos 404): <code>us(normal)</code>, <code>us(baseUrl)</code>, <code>eu(normal)</code>, <code>eu(baseUrl)</code>, <code>us-west1</code>, <code>us-west4</code>, <code>us-east1</code>, <code>us-east4</code>, <code>us-east5</code>, <code>us-south1</code>, <code>northamerica-northeast1</code>, <code>southamerica-east1</code>, <code>europe-west1</code>, <code>europe-west2</code>, <code>europe-west3</code>, <code>europe-west4</code>, <code>europe-west6</code>, <code>europe-west8</code>, <code>europe-west9</code>, <code>europe-north1</code>, <code>europe-central2</code>, <code>europe-southwest1</code>, <code>asia-east1</code>, <code>asia-east2</code>, <code>asia-south1</code>, <code>asia-southeast1</code>, <code>asia-northeast1</code>, <code>asia-northeast3</code>, <code>australia-southeast1</code>, <code>me-west1</code>, <code>me-central1</code>, <code>me-central2</code>.</p>
+<h2 id="s7">7. Cobertura por regiao (quais modelos cada regiao atende)</h2>
+<h3>Texto</h3>
+<div class="tblwrap"><table><thead><tr><th>Endpoint</th><th class="num">Nº</th><th>Modelos disponiveis</th></tr></thead><tbody>
+<tr><td><code>global</code></td><td class="num">7</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code> <code>gemini-3.5-flash</code> <code>gemini-3.1-pro-preview</code> <code>gemini-3.1-flash-lite</code> <code>gemini-3-flash-preview</code></td></tr>
+<tr><td><code>us-west1</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>us-west4</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>us-central1</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>us-east1</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>us-east4</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>us-east5</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>us-south1</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>northamerica-northeast1</code></td><td class="num">2</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code></td></tr>
+<tr><td><code>southamerica-east1</code></td><td class="num">1</td><td><code>gemini-2.5-flash</code></td></tr>
+<tr><td><code>europe-west1</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>europe-west2</code></td><td class="num">2</td><td><code>gemini-2.5-flash</code> <code>gemini-3.5-flash</code></td></tr>
+<tr><td><code>europe-west3</code></td><td class="num">1</td><td><code>gemini-2.5-flash</code></td></tr>
+<tr><td><code>europe-west4</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>europe-west8</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>europe-west9</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>europe-north1</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>europe-central2</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>europe-southwest1</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-2.5-flash-lite</code></td></tr>
+<tr><td><code>asia-south1</code></td><td class="num">2</td><td><code>gemini-2.5-flash</code> <code>gemini-3.5-flash</code></td></tr>
+<tr><td><code>asia-southeast1</code></td><td class="num">2</td><td><code>gemini-2.5-flash</code> <code>gemini-3.5-flash</code></td></tr>
+<tr><td><code>asia-northeast1</code></td><td class="num">3</td><td><code>gemini-2.5-pro</code> <code>gemini-2.5-flash</code> <code>gemini-3.5-flash</code></td></tr>
+<tr><td><code>asia-northeast3</code></td><td class="num">1</td><td><code>gemini-2.5-flash</code></td></tr>
+<tr><td><code>australia-southeast1</code></td><td class="num">1</td><td><code>gemini-2.5-flash</code></td></tr>
+</tbody></table></div>
+<h3>Imagem</h3>
+<div class="tblwrap"><table><thead><tr><th>Endpoint</th><th class="num">Nº</th><th>Modelos disponiveis</th></tr></thead><tbody>
+<tr><td><code>global</code></td><td class="num">7</td><td><code>gemini-2.5-flash-image</code> <code>gemini-3-pro-image</code> <code>gemini-3.1-flash-image</code> <code>gemini-3.1-flash-lite-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>us-west1</code></td><td class="num">4</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>us-west4</code></td><td class="num">4</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>us-central1</code></td><td class="num">4</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>us-east1</code></td><td class="num">4</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>us-east4</code></td><td class="num">4</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>us-east5</code></td><td class="num">3</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>us-south1</code></td><td class="num">4</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>northamerica-northeast1</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>southamerica-east1</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>europe-west1</code></td><td class="num">4</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>europe-west2</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>europe-west3</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>europe-west4</code></td><td class="num">4</td><td><code>gemini-2.5-flash-image</code> <code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>europe-west8</code></td><td class="num">1</td><td><code>gemini-2.5-flash-image</code></td></tr>
+<tr><td><code>europe-west9</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>europe-north1</code></td><td class="num">1</td><td><code>gemini-2.5-flash-image</code></td></tr>
+<tr><td><code>europe-central2</code></td><td class="num">1</td><td><code>gemini-2.5-flash-image</code></td></tr>
+<tr><td><code>europe-southwest1</code></td><td class="num">1</td><td><code>gemini-2.5-flash-image</code></td></tr>
+<tr><td><code>asia-south1</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>asia-southeast1</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>asia-northeast1</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>asia-northeast3</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+<tr><td><code>australia-southeast1</code></td><td class="num">3</td><td><code>imagen-4.0-generate-001</code> <code>imagen-4.0-ultra-generate-001</code> <code>imagen-4.0-fast-generate-001</code></td></tr>
+</tbody></table></div>
+<h3>Video</h3>
+<div class="tblwrap"><table><thead><tr><th>Endpoint</th><th class="num">Nº</th><th>Modelos disponiveis</th></tr></thead><tbody>
+<tr><td><code>global</code></td><td class="num">3</td><td><code>veo-3.1-fast-generate-001</code> <code>veo-3.1-generate-001</code> <code>veo-3.1-lite-generate-001</code></td></tr>
+<tr><td><code>us-central1</code></td><td class="num">3</td><td><code>veo-3.1-fast-generate-001</code> <code>veo-3.1-generate-001</code> <code>veo-3.1-lite-generate-001</code></td></tr>
+</tbody></table></div>
+<h2 id="s8">8. Endpoints multi-regionais us/eu (REP)</h2>
+<div class="tblwrap"><table><thead><tr><th>Multi-regiao</th><th>normal</th><th>baseUrl</th><th>baseUrl host</th></tr></thead><tbody>
+<tr><td><code>us</code></td><td>model-404</td><td>model-404</td><td><code>https://aiplatform.us.rep.googleapis.com</code></td></tr>
+<tr><td><code>eu</code></td><td>model-404</td><td>model-404</td><td><code>https://aiplatform.eu.rep.googleapis.com</code></td></tr>
+</tbody></table></div>
+<p class="note">No agregado, os unicos modelos que respondem via <code>us</code>/<code>eu</code> sao os "3.x" de texto (<code>gemini-3.5-flash</code>, <code>gemini-3.1-flash-lite</code>). Para 2.5 e Imagen/Veo os multi-regionais retornam 404.</p>
+<h2 id="s9">9. Metodologia, proveniencia e sanitizacao</h2>
+<ul>
+<li><b>Execucao:</b> varredura serial (uma chamada por vez) de cada modelo contra cada endpoint. Fonte: diagnostico rodado no VPS do usuario (serial re-test v2).</li>
+<li><b>Reconstrucao:</b> gerado do <code>report_data.json</code> original; a grade de 578 celulas foi reconstruida deterministicamente de <code>perModel</code> + <code>cov</code>. Latencias de sucesso = valores medidos originais; latencias de celulas 404 omitidas.</li>
+<li><b>Sanitizacao (repo publico):</b> project id do GCP, bucket GCS e IP do VPS redigidos. Nenhum token/API key/service-account presente.</li>
+<li><b>Formato:</b> 100% estatico, sem JavaScript — todo o conteudo no proprio arquivo.</li>
+<li><b>Dados:</b> <code>mapa-regioes-data.json</code> contem meta + perModel + cobertura + matriz completa.</li>
+</ul>
+<footer>Mapa Vertex AI (serial re-test v2) &middot; gerado em 2026-07-17 &middot; documento estatico e sanitizado.</footer>
+</div></body></html>
