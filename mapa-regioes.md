@@ -392,3 +392,181 @@ Listas **completas** — todos os endpoints de cada modelo, sem abreviação (es
 ---
 
 **Proveniência & sanitização:** documento estático (sem JavaScript) gerado a partir do `report_data.json` original (sha256 `d9ee0762…`). Reproduz fielmente as 9 seções do `RELATORIO.md` do VPS, com a Seção 5 completa (todos os endpoints). Sanitizado para repositório público: nenhum project id, bucket GCS, IP, token, API key ou service-account presente. Dados estruturados completos em `mapa-regioes-data.json` (mesma pasta).
+
+---
+
+## SEÇÃO 10 — GERAÇÃO CONDICIONADA POR REFERÊNCIA
+
+> **Conjunto de dados distinto.** Tudo acima nesta página descreve geração **texto→imagem** (578 células, teste de 2026-07-16). Esta seção descreve **geração condicionada por imagem de referência** (10 células, teste de 2026-07-23). São **capacidades diferentes**, medidas por experimentos diferentes, e os dois números **não devem ser somados**. Dados estruturados sob a chave `reference_conditioned_generation` em `mapa-regioes-data.json`.
+
+### 10.1 Objetivo e pergunta de pesquisa
+
+O servidor MCP tem tools (`imagen_edit`, com 4 modos, e `remove_background`) que geram imagens a partir de uma ou duas imagens de referência + prompt de texto, pela rota `models.generateContent` do SDK, enviando as imagens como `inlineData`. Todas essas chamadas estão fixas em `gemini-2.5-flash-image` e na região fixa do ambiente, **sem qualquer cadeia de fallback**.
+
+O mapa de regiões acima testou exclusivamente geração **texto→imagem** (prompt puro, sem imagem de entrada). Geração condicionada por referência é tecnicamente distinta: o modelo precisa aceitar `inlineData` de imagem na entrada multimodal **e ainda assim** devolver uma imagem na saída. Um modelo pode gerar imagens a partir de texto e mesmo assim rejeitar (HTTP 400) a presença de uma imagem de entrada, ou aceitá-la e devolver apenas texto descritivo. **Uma capacidade não pode ser inferida da outra.**
+
+Pergunta: quais modelos, além do `gemini-2.5-flash-image` em uso, (a) aceitam imagem de referência via `inlineData` na rota `generateContent` sem rejeitar o formato, (b) efetivamente devolvem uma imagem na resposta, e (c) aceitam também **duas** imagens de referência simultâneas? Isso é pré-requisito factual para desenhar uma cadeia de fallback (modelo × região) para essas tools.
+
+Fora do escopo, por fato já verificado: a família **Imagen 4** usa a rota `models.generateImages`, cujo `GenerateImagesConfig` não possui campo de imagem de referência no SDK 1.52.0. Imagen 4 foi excluído por essa razão.
+
+### 10.2 Metodologia
+
+**Rota e assinatura exata.** Todas as células usaram exclusivamente `models.generateContent`:
+
+```js
+const response = await client.models.generateContent({
+  model,                                              // ex.: "gemini-3-pro-image"
+  config: { responseModalities: ["TEXT", "IMAGE"] },
+  contents,                                           // array de parts, ver abaixo
+});
+```
+
+A extração da imagem seguiu o mesmo padrão do `server.js` (linhas 193-195, 2913-2915, 2955-2957): varre `response.candidates[0].content.parts` e pega o primeiro `part.inlineData.data`. Também foram capturados `finishReason` e `promptFeedback.blockReason` em todas as células, para distinguir "resposta vazia" de "bloqueio de conteúdo".
+
+**Ordem das parts — texto primeiro, imagens depois.** É a ordem que o `server.js` já usa em `generateImageWithFallback` (linhas 183-187) e em `imagen_edit` modo `generate_with_reference` (linhas 2940-2948).
+
+```js
+// Experimento 1 (uma referência)
+contents = [
+  { text: PROMPT_EXP1 },
+  { inlineData: { mimeType: "image/jpeg", data: <base64 da foto do produto> } },
+]
+
+// Experimento 2 (duas referências)
+contents = [
+  { text: PROMPT_EXP2 },
+  { inlineData: { mimeType: "image/jpeg", data: <base64 da foto original> } },
+  { inlineData: { mimeType: <mime da saída do Exp.1>, data: <base64 da saída do Exp.1 do MESMO modelo> } },
+]
+```
+
+A segunda referência do Exp.2 foi a **saída bem-sucedida do Exp.1 do próprio modelo/região**, não uma imagem fixa. Isso simula o fluxo real da pipeline (ref1 gera imagem 2; ref1 + ref2 geram imagem 3) e mantém cada célula do Exp.2 autoconsistente com a do Exp.1.
+
+**Imagem de referência.** `<APP_DIR>/downloads/images/<DRIVE_FILE_ID>.jpg` — cache local de um fileId do Drive, produzido por `resolveImagePath` (`server.js` linha 410), portanto byte-a-byte o mesmo arquivo que a pipeline de produção usaria. JPEG baseline, 532 × 443 px, 15.206 bytes, `image/jpeg`. Conferida visualmente: aspirador de pó portátil, corpo verde-escuro fosco, reservatório transparente esfumaçado, empunhadura tipo pistola com estrias pretas, bico prateado, sobre fundo branco. Nenhuma chamada à API do Drive foi feita.
+
+**Prompts literais.** Descrição canônica do produto, interpolada em ambos:
+
+> `compact handheld vacuum cleaner, dark green body with matte finish, transparent smoke-colored reservoir, pistol-grip ergonomic handle with black rubber grooves, silver chrome nozzle tip, approximately 25cm long`
+
+Prompt do **Experimento 1**, idêntico nas 5 células:
+
+> `A person's hand holding this exact product while vacuuming crumbs from a light grey fabric sofa, bright natural daylight, modern living room, realistic UGC photo style, vertical composition. Product: compact handheld vacuum cleaner, dark green body with matte finish, transparent smoke-colored reservoir, pistol-grip ergonomic handle with black rubber grooves, silver chrome nozzle tip, approximately 25cm long. Preserve the exact shape, color and proportions of the product in the reference image.`
+
+Prompt do **Experimento 2**, idêntico nas 5 células:
+
+> `A person's hand holding this exact product while vacuuming crumbs from a kitchen floor, bright natural daylight, modern kitchen, realistic UGC photo style, vertical composition. Product: compact handheld vacuum cleaner, dark green body with matte finish, transparent smoke-colored reservoir, pistol-grip ergonomic handle with black rubber grooves, silver chrome nozzle tip, approximately 25cm long. Preserve the exact shape, color and proportions of the product in the reference image.`
+
+A única diferença entre os dois são duas substituições de cenário, para forçar uma cena nova no Exp.2: `a light grey fabric sofa` → `a kitchen floor`, e `modern living room` → `modern kitchen`. Todo o restante é byte-a-byte idêntico.
+
+**Client por região.** Um client por região, com cache em `Map`, seguindo `getVertexClient(location)` do `server.js` (linhas 108-122): `new GoogleGenAI({ vertexai: true, project, location })`. A região default do ambiente foi **deliberadamente ignorada**, porque a região é parte do que está sendo testado — usar o default invalidaria o resultado. O client free-tier não foi utilizado em nenhum momento; o SDK confirmou isso emitindo, exatamente 2 vezes (uma por região distinta), o aviso de que os parâmetros explícitos de projeto/região têm precedência.
+
+**Execução serial, e por quê.** As 10 chamadas rodaram estritamente uma de cada vez, em um único `for...of` com `await`, sem `Promise.all`, sem `Promise.allSettled`, sem concorrência de qualquer tipo. Razão: execuções paralelas já corromperam resultados de testes anteriores neste projeto, produzindo **429 falsos** (o paralelismo satura a cota instantânea e faz o modelo parecer indisponível quando está apenas congestionado) e **latências inúteis** (chamadas concorrentes disputam banda e CPU, então o tempo medido não reflete o tempo real de uma chamada isolada). A latência de cada célula foi medida com `Date.now()` imediatamente antes e depois do `await`.
+
+**Modelos e regiões, e por que essas escolhas.**
+
+| Modelo | Região | Papel | Justificativa da região |
+|---|---|---|---|
+| `gemini-2.5-flash-image` | `europe-southwest1` | **Controle** (modelo em produção) | Menor latência medida para este modelo no mapa de regiões acima; é a primeira da lista dele em `IMAGE_MODEL_FALLBACK_CHAIN` |
+| `gemini-2.5-flash-image` | `global` | Controle, 2ª região | Verifica se a capacidade é estável entre regiões do mesmo modelo |
+| `gemini-3-pro-image` | `global` | Candidato | Modelo 3.x é global-only (404 em regiões específicas, confirmado em teste anterior) |
+| `gemini-3.1-flash-image` | `global` | Candidato | Idem — global-only |
+| `gemini-3.1-flash-lite-image` | `global` | Candidato | Idem — global-only |
+
+O `gemini-2.5-flash-image` roda em 14 regiões; foram usadas as duas acima. O **controle** existe para dar linha de base: se ele falhasse, o teste inteiro seria suspeito de erro de montagem, e não de incapacidade dos modelos.
+
+O script do teste ficou em `<TMP>/reftest.mjs`, fora do repositório, e os resultados estruturados em `<TMP>/reftest_results.json`. O SDK foi importado por caminho absoluto a partir do `node_modules` já instalado do projeto — nenhum pacote foi instalado ou atualizado.
+
+### 10.3 Resultados — Experimento 1 (1 imagem de referência)
+
+5 células, executadas serialmente. **Nenhum erro: 5 de 5 sucessos.**
+
+| Modelo | Região | Resultado | Veio imagem | Bytes b64 | Latência | Dimensões |
+|---|---|---|---|---:|---:|---|
+| `gemini-2.5-flash-image` | `europe-southwest1` | sucesso | sim · `image/png` | 1.842.344 | 8.702 ms | 1120×928 (paisagem) |
+| `gemini-2.5-flash-image` | `global` | sucesso | sim · `image/png` | 1.810.368 | 8.238 ms | 1120×928 (paisagem) |
+| `gemini-3-pro-image` | `global` | sucesso | sim · `image/png` | 2.099.692 | 17.832 ms | 848×1264 (retrato) |
+| `gemini-3.1-flash-image` | `global` | sucesso | sim · `image/png` | 2.548.864 | 10.784 ms | 768×1376 (retrato) |
+| `gemini-3.1-flash-lite-image` | `global` | sucesso | sim · `image/jpeg` | 242.296 | 4.391 ms | 768×1376 (retrato) |
+
+Em todas as 5: `finishReason = "STOP"`, `promptFeedback.blockReason = null`. Nenhum HTTP 400, 404 ou 429, nenhum bloqueio de conteúdo, nenhuma resposta vazia. As dimensões e o codec foram verificados com `ffprobe` sobre os arquivos gravados, não pelo `mimeType` declarado.
+
+### 10.4 Resultados — Experimento 2 (2 imagens de referência)
+
+Como as 5 células do Exp.1 tiveram sucesso, todos os 5 pares modelo×região foram submetidos ao Exp.2. **Nenhum erro: 5 de 5 sucessos.**
+
+| Modelo | Região | Resultado | Veio imagem | Bytes b64 | Latência | Dimensões |
+|---|---|---|---|---:|---:|---|
+| `gemini-2.5-flash-image` | `europe-southwest1` | sucesso | sim · `image/png` | 1.536.036 | 10.977 ms | 1120×928 (paisagem) |
+| `gemini-2.5-flash-image` | `global` | sucesso | sim · `image/png` | 1.483.944 | 9.543 ms | 1120×928 (paisagem) |
+| `gemini-3-pro-image` | `global` | sucesso | sim · `image/png` | 1.883.452 | 48.141 ms | 848×1264 (retrato) |
+| `gemini-3.1-flash-image` | `global` | sucesso | sim · `image/png` | 2.178.756 | 12.149 ms | 1134×944 (paisagem) |
+| `gemini-3.1-flash-lite-image` | `global` | sucesso | sim · `image/jpeg` | 134.900 | 4.866 ms | 768×1376 (retrato) |
+
+Em todas as 5: `finishReason = "STOP"`, `promptFeedback.blockReason = null`.
+
+As 10 imagens foram gravadas em `<APP_DIR>/downloads/images/`, com nomes `reftest_exp{1,2}_<modelo>_<regiao>.png`. **Atenção:** as duas saídas do `gemini-3.1-flash-lite-image` têm extensão `.png` mas conteúdo **JPEG** — a convenção de nomes foi imposta pela especificação do teste, e o modelo devolveu `image/jpeg`. Isso não afeta viewers que detectam pelo conteúdo, mas afeta ferramentas que confiem na extensão.
+
+### 10.5 Veredito por modelo
+
+> ### ⚠️ AVISO CRÍTICO, VÁLIDO PARA TODOS OS VEREDITOS ABAIXO
+>
+> **ACEITA REFERÊNCIA não é o mesmo que PRESERVA A GEOMETRIA DO PRODUTO. A preservação geométrica NÃO foi avaliada neste teste e depende de revisão visual humana, ainda PENDENTE.**
+>
+> O teste mediu exclusivamente se o modelo aceita `inlineData` de imagem na entrada sem rejeitar o formato e devolve uma imagem na saída. Se essa imagem contém o produto correto — mesma forma, mesmas cores, mesmas proporções — não foi verificado e não pode ser verificado por esta via. As imagens geradas foram deliberadamente não abertas nem julgadas por quem executou o teste, para não contaminar o resultado com um juízo que não é mensurável assim. Um modelo pode aceitar a referência perfeitamente e ainda assim desenhar um produto completamente diferente. **Nenhuma frase deste documento deve ser lida como afirmando que qualquer modelo preserva a geometria do produto.**
+
+| Modelo | Veredito | 1 ref | 2 refs | Regiões confirmadas | Latência 1 ref | Latência 2 refs | MIME |
+|---|---|:-:|:-:|---|---:|---:|---|
+| `gemini-2.5-flash-image` | ACEITA REFERÊNCIA | sim | sim | `europe-southwest1`, `global` | 8,2–8,7 s | 9,5–11,0 s | `image/png` |
+| `gemini-3-pro-image` | ACEITA REFERÊNCIA | sim | sim | `global` | 17,8 s | 48,1 s | `image/png` |
+| `gemini-3.1-flash-image` | ACEITA REFERÊNCIA | sim | sim | `global` | 10,8 s | 12,1 s | `image/png` |
+| `gemini-3.1-flash-lite-image` | ACEITA REFERÊNCIA | sim | sim | `global` | 4,4 s | 4,9 s | `image/jpeg` |
+| Imagen 4 (família) | **NÃO TESTADO** — excluído a priori | — | — | — | — | — | — |
+
+Notas por modelo, todas com **preservação geométrica NÃO AVALIADA — pendente de revisão visual humana**:
+
+- **`gemini-2.5-flash-image`** — 4 chamadas (2 regiões × 2 experimentos), 0 falhas, payloads de 1.483.944 a 1.842.344 caracteres base64. Modelo em produção; serviu de **controle**, e seu sucesso valida que a montagem das parts do teste está correta. Comportamento idêntico nas duas regiões — a capacidade é estável entre regiões. É o de latência mais previsível. **Não respeitou o pedido de composição vertical em nenhuma das 4 chamadas** (devolveu 1120×928, paisagem).
+- **`gemini-3-pro-image`** — 2 chamadas, 0 falhas. Global-only; apenas `global` foi testada, e este teste **não** re-verificou o 404 em regiões específicas (premissa herdada de teste anterior). É de longe o mais lento, e o único cuja latência mais que dobrou com a segunda referência (fator 2,7×) — ver 10.6. Respeitou a composição vertical nos dois experimentos.
+- **`gemini-3.1-flash-image`** — 2 chamadas, 0 falhas; os **maiores payloads** do teste. Global-only. Custo marginal baixo pela segunda referência (+12,7%). Único modelo que **mudou de orientação entre os dois experimentos** — 768×1376 (retrato) no Exp.1 e 1134×944 (paisagem) no Exp.2, com o mesmo pedido textual de composição vertical.
+- **`gemini-3.1-flash-lite-image`** — 2 chamadas, 0 falhas. Global-only. **O mais rápido por larga margem**: ~2× mais rápido que o controle e até 11× mais rápido que o `gemini-3-pro-image` com 2 referências. **Único que devolve `image/jpeg`**, com payloads uma ordem de grandeza menores (135–242 KB contra 1,4–2,5 MB) **nas mesmas dimensões de pixel** (768×1376) — ou seja, compressão com perdas, não menor resolução. Isso é diretamente relevante para pipelines que encadeiam gerações (a saída de um passo vira referência do próximo, como no Exp.2): a perda por compressão pode acumular a cada iteração.
+
+**Conclusão geral.** Todos os 4 modelos testados aceitam imagem de referência via `inlineData` na rota `generateContent`, com 1 e com 2 referências. Nenhum rejeitou o formato. Do ponto de vista estrito de aceitação de referência, os 4 são candidatos válidos para uma cadeia de fallback. A **ordem** da cadeia depende de dois fatores que este teste não resolveu: a preservação geométrica (revisão visual humana pendente) e o custo por imagem.
+
+### 10.6 Anomalias e achados inesperados
+
+- **Nenhuma falha em nenhuma célula.** O resultado mais inesperado é a ausência total de resultados negativos: 10 de 10 sucessos. A hipótese que motivou o teste — de que algum modelo pudesse rejeitar `inlineData` com HTTP 400 — não se materializou. Isso é informativo, mas também significa que o teste **não exercitou nenhum dos caminhos de erro** que se propunha a classificar (400, 404, bloqueio, resposta vazia). A ausência de erros é um dado, não uma validação dos classificadores de erro do script.
+- **Orientação da imagem varia por modelo e nem sempre respeita o pedido.** O prompt pediu `vertical composition` em todas as células. O modelo **em produção** é justamente o que ignora o pedido, devolvendo paisagem nas 4 chamadas — contra-indicado para criativos UGC verticais. E o `gemini-3.1-flash-image` mudou de orientação entre Exp.1 e Exp.2 com o mesmo pedido textual, sugerindo que a presença de uma segunda referência influencia a razão de aspecto da saída. O `server.js` codifica a razão de aspecto **no texto do prompt** (linhas 177-180 de `generateImageWithFallback`), não por parâmetro de configuração — este achado indica que essa estratégia não é confiável de forma uniforme entre modelos. Registrado também em `achados-pipeline.md`.
+- **`gemini-3-pro-image` degrada muito com a segunda referência** — 17.832 ms → 48.141 ms, fator 2,7×. Nenhum outro modelo teve degradação comparável (`gemini-2.5-flash-image` +16–26%, `gemini-3.1-flash-image` +12,7%, `gemini-3.1-flash-lite-image` +10,8%). Como o modo `generate_with_reference` do `imagen_edit` aceita uma segunda imagem, esse é o cenário real de uso, e 48 s pode estourar timeouts de cliente. **Ressalva: amostra única** — pode ser variância de carga do endpoint `global` naquele instante, e não característica do modelo. Não foi repetido.
+- **Achado colateral: as narrações TTS não são WAV válidos**, o que faz o merge de áudio/vídeo truncar narração silenciosamente. Não era objeto deste teste, mas é o achado de maior impacto operacional. Documentado por completo em **[`achados-pipeline.md`](achados-pipeline.md)**.
+
+### 10.7 Custo
+
+| Modelo | Chamadas Exp.1 | Chamadas Exp.2 | Total | Imagens produzidas |
+|---|---:|---:|---:|---:|
+| `gemini-2.5-flash-image` | 2 | 2 | 4 | 4 |
+| `gemini-3-pro-image` | 1 | 1 | 2 | 2 |
+| `gemini-3.1-flash-image` | 1 | 1 | 2 | 2 |
+| `gemini-3.1-flash-lite-image` | 1 | 1 | 2 | 2 |
+| **TOTAL** | **5** | **5** | **10** | **10** |
+
+Limite autorizado: 15 chamadas. Utilizadas: 10. Nenhuma desperdiçada em retentativa, porque não houve falhas.
+
+**Estimativa de custo — ordem de grandeza, NÃO verificada no billing:** usando faixas públicas de preço por imagem de saída no Vertex AI (~US$ 0,04/imagem para a classe flash, ~US$ 0,13/imagem para a classe pro), o total fica em torno de **US$ 0,50 a US$ 0,60**, mais uma parcela desprezível de tokens de entrada. O custo real **não** foi consultado no console nem na API de billing do GCP.
+
+### 10.8 Limitações — o que este teste NÃO provou
+
+Esta lista é deliberadamente rigorosa. Superestimar o que foi provado é pior do que não ter testado.
+
+1. **A preservação da geometria do produto NÃO foi avaliada, em nenhum modelo.** É o limite mais importante — exige revisão visual humana das 10 imagens, e essa revisão está **PENDENTE**.
+2. **Amostra de tamanho 1 por célula** — sem repetições, sem medida de variância, sem intervalo de confiança. As latências são observações únicas, não médias. O outlier de 48 s pode ser característica do modelo ou ruído de carga; com n=1 é impossível distinguir.
+3. **Um único prompt e um único produto de referência** (532×443, fundo branco). A aceitação de referência pode variar com o conteúdo da imagem, sua resolução, sua razão de aspecto ou o tema do prompt.
+4. **Cobertura de regiões não é exaustiva** — `gemini-2.5-flash-image` roda em 14 regiões, apenas 2 testadas; para os modelos 3.x apenas `global` foi testada, e o 404 em regiões específicas **não** foi re-verificado (premissa herdada).
+5. **Apenas 1 e 2 referências foram testadas** — o limite superior é desconhecido.
+6. **A ordem das parts não foi variada** — apenas `[texto, imagens]`. A ordem foi fixada para replicar o padrão de produção, não para otimizá-lo.
+7. **Nenhum parâmetro de config além de `responseModalities` foi exercitado** — nada de `temperature`, `seed`, `aspectRatio` ou `imageConfig`. Os achados sobre orientação referem-se apenas à estratégia atual de codificar a razão de aspecto no texto do prompt.
+8. **Custo não verificado no billing do GCP.**
+9. **Nenhuma falha ocorreu**, então os caminhos de erro (400 / 404 / bloqueio / vazio) não foram exercitados.
+10. **Este teste valida os insumos da cadeia de fallback, não a cadeia em si.** Saber que os 4 modelos aceitam referência é condição necessária, não suficiente. A ordem depende de qualidade (não medida), custo (não verificado) e comportamento sob falha real (não observado, porque não houve falhas).
+
+---
+
+**Proveniência & sanitização da Seção 10:** teste executado em 2026-07-23, 23:48:01 → 23:50:08 UTC, servidor em `Etc/UTC`. Node v20.20.2, SDK `@google/genai` 1.52.0, `server.js` no commit `d3b7a8a` (2026-07-21). 10 chamadas de API, execução serial, 0 falhas. Nada foi corrigido no servidor — o teste foi somente de medição e relato; nenhum arquivo rastreado pelo git do projeto foi editado, criado ou apagado, nenhum `git pull/reset/checkout/commit/push` foi executado, PM2 não foi reiniciado nem recarregado, variáveis de ambiente não foram alteradas, nenhum pacote foi instalado. Sanitizado para repositório público: `<PROJECT>`, `<HOST>`, `<APP_DIR>`, `<PM2_LOGS>`, `<TMP>` e `<DRIVE_FILE_ID>` substituem, respectivamente, o project id do GCP, o hostname do servidor, o diretório da aplicação, o diretório de logs do PM2, o diretório temporário e o fileId do Drive. Dados estruturados completos sob `reference_conditioned_generation` em `mapa-regioes-data.json`.

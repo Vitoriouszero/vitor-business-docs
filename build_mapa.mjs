@@ -2,7 +2,11 @@
 // build_mapa.mjs — Gerador determinístico do mapa-regioes.html (v3, visual).
 // Lê mapa-regioes-data.json (mesma pasta) e escreve mapa-regioes.html.
 // Dados embutidos inline (legível por IA). Sanitizado: nunca imprime
-// project id / bucket / IP (usa <PROJECT> nos caminhos 404).
+// project id / bucket / IP / hostname / caminho absoluto de servidor
+// (usa <PROJECT>, <HOST>, <APP_DIR>, <PM2_LOGS>, <TMP>, <DRIVE_FILE_ID>).
+// Dois conjuntos DISTINTOS, nunca somados: 578 células texto->imagem
+// (secoes 1-9 + tabela mestre) e 10 células de geração condicionada por
+// referência (secao 10, chave reference_conditioned_generation).
 // Uso:  node build_mapa.mjs
 import { readFileSync, writeFileSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -16,6 +20,7 @@ const d = JSON.parse(readFileSync(DATA, "utf-8"));
 const meta = d.meta, prov = d.provenance;
 const EPO = d.endpointsOrder, MBM = d.modelsByModality;
 const perModel = d.perModel, master = d.master;
+const RCG = d.reference_conditioned_generation;
 const ARTIFACT_URL = prov.artifact || "";
 
 const esc = (s) => String(s)
@@ -120,6 +125,45 @@ function buildMasterRows(){
   }).join("");
 }
 
+// ── Geração condicionada por referência (conjunto de dados distinto do mapa) ──
+function rcgRows(exp){
+  return RCG.celulas.filter(c => c.experimento === exp).map(c => {
+    const okcls = c.resultado === "sucesso" ? "ok" : "err";
+    return `<tr><td class="mono">${esc(c.modelo)}</td>`
+      + `<td class="mono">${esc(c.regiao)}</td>`
+      + `<td><span class="badge ${okcls}">${esc(c.resultado)}</span></td>`
+      + `<td class="mono">${c.veio_imagem ? "sim" : "não"} · ${esc(c.mime_saida)}</td>`
+      + `<td class="mono num">${fmtInt(c.bytes_b64)}</td>`
+      + `<td class="mono num">${fmtMs(c.latencia_ms)}</td>`
+      + `<td class="mono">${esc(c.dimensoes)}</td></tr>`;
+  }).join("");
+}
+function rcgTable(exp){
+  return `<div class="mt-wrap"><table class="master"><thead><tr>`
+    + `<th>Modelo</th><th>Região</th><th>Resultado</th><th>Veio imagem</th>`
+    + `<th>Bytes b64</th><th>Latência</th><th>Dimensões</th></tr></thead>`
+    + `<tbody>${rcgRows(exp)}</tbody></table></div>`;
+}
+function rcgVeredito(){
+  const cards = Object.entries(RCG.veredito_por_modelo).map(([m,v]) => {
+    const l1 = v.latencia_1ref_ms.map(fmtMs).join(" · ");
+    const l2 = v.latencia_2ref_ms.map(fmtMs).join(" · ");
+    return `<article class="mcard"><header><h4 class="mono">${esc(m)}</h4>`
+      + `<p class="meta mono">${esc(v.veredito)} · ${v.chamadas_realizadas} chamadas · ${v.falhas} falhas</p></header>`
+      + `<ul class="narr">`
+      + `<li><b>1 referência:</b> ${v.aceita_1_referencia ? "aceita" : "não aceita"} · ${l1}</li>`
+      + `<li><b>2 referências:</b> ${v.aceita_2_referencias ? "aceita" : "não aceita"} · ${l2}</li>`
+      + `<li><b>Regiões confirmadas:</b> <code>${esc(v.regioes_confirmadas.join(", "))}</code></li>`
+      + `<li><b>MIME de saída:</b> <code>${esc(v.mime_saida)}</code></li>`
+      + `<li><b>Preservação geométrica:</b> ${esc(v.preservacao_geometrica)}</li>`
+      + `<li>${esc(v.observacao)}</li></ul></article>`;
+  }).join("");
+  return `<div class="mcards">${cards}</div>`;
+}
+function rcgLimitacoes(){
+  return `<ul class="narr">${RCG.limitacoes.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+}
+
 const SECOES = {
 s1:["SEÇÃO 1 — SETUP",`
 <ul class="narr">
@@ -170,14 +214,30 @@ s9:["SEÇÃO 9 — OBSERVAÇÕES / ANOMALIAS",`
 <li><b>Doc oficial contrariada:</b> gemini-3.5-flash (ausente na doc) funciona; IDs de imagem 3.x GA (sem <code>-preview</code>) são os válidos.</li>
 <li><b>Variância de geração de vídeo:</b> 61s a &gt;180s no mesmo modelo; a latência de <b>iniciação</b> (usada no mapa) é estável (~160–360ms).</li>
 </ul>`],
+s10:["SEÇÃO 10 — GERAÇÃO CONDICIONADA POR REFERÊNCIA",`
+<p class="lead">Duas capacidades <b>distintas</b>, medidas por dois experimentos separados. Todo o restante deste documento responde <b>"quais modelos geram imagem a partir de texto, e em quais regiões"</b> (${fmtInt(meta.totalCells)} células). Esta seção responde <b>"quais modelos geram imagem a partir de uma foto de referência + texto, e em quais regiões"</b> (${RCG.celulas.length} células). Uma <b>não</b> substitui nem implica a outra: um modelo pode gerar imagem a partir de texto e ainda assim rejeitar (HTTP 400) uma imagem de entrada, ou aceitá-la e devolver apenas texto descritivo.</p>
+<ul class="narr">
+<li><b>Rota:</b> <code>${esc(RCG.metadata.rota_testada)}</code>, config <code>{ responseModalities: ["TEXT","IMAGE"] }</code>. As imagens entram como <code>inlineData</code>.</li>
+<li><b>Ordem das parts:</b> <code>${esc(RCG.prompts.ordem_das_parts)}</code> — o mesmo padrão que o server.js já usa.</li>
+<li><b>Experimento 1</b>: 1 referência (a foto do produto, ${RCG.imagem_referencia.largura}×${RCG.imagem_referencia.altura}, ${fmtInt(RCG.imagem_referencia.bytes)} bytes). <b>Experimento 2</b>: 2 referências — a foto original <b>mais a saída do Exp.1 do próprio modelo/região</b>, simulando o encadeamento real da pipeline.</li>
+<li><b>Execução serial</b>, uma chamada por vez, sem <code>Promise.all</code>: paralelismo já produziu 429 falsos e latências inúteis em testes anteriores deste projeto.</li>
+<li><b>${RCG.metadata.total_chamadas_api} chamadas, ${RCG.metadata.total_falhas} falhas.</b> Nenhum HTTP 400/404/429, nenhum bloqueio de conteúdo, nenhuma resposta vazia. Todas as células: <code>finishReason=STOP</code>, <code>blockReason=null</code>.</li>
+<li><b>Imagen 4 fora do escopo:</b> ${esc(RCG.metadata.imagen_4_excluido)}.</li>
+</ul>
+<div class="chain"><h4>⚠️ Aviso crítico — leia antes de usar qualquer veredito abaixo</h4>
+<p>ACEITA REFERÊNCIA não é o mesmo que PRESERVA A GEOMETRIA DO PRODUTO. A preservação geométrica NÃO foi avaliada neste teste e depende de revisão visual humana, ainda PENDENTE.</p></div>
+<div class="mc-block"><h3 class="mono">EXPERIMENTO 1 — 1 IMAGEM DE REFERÊNCIA</h3>${rcgTable(1)}</div>
+<div class="mc-block"><h3 class="mono">EXPERIMENTO 2 — 2 IMAGENS DE REFERÊNCIA</h3>${rcgTable(2)}</div>
+<div class="mc-block"><h3 class="mono">VEREDITO POR MODELO</h3>${rcgVeredito()}</div>
+<div class="mc-block"><h3 class="mono">LIMITAÇÕES — O QUE ESTE TESTE NÃO PROVOU</h3>${rcgLimitacoes()}</div>`],
 };
 
 const NAV = [["s1","Setup"],["s2","Multi-região"],["s3","Lista negra"],["s4","Mapa de calor"],
  ["s5","Por modelo"],["s6","Fallback"],["s7","Comparação"],["smaster","Tabela mestre"],
- ["s8","Limpeza"],["s9","Anomalias"]];
+ ["s8","Limpeza"],["s9","Anomalias"],["s10","Geração por referência"]];
 
 const statCards = [
- ["endpoints","32","global + 2 multi + 29 regionais"],["células","578","texto · imagem · vídeo"],
+ ["endpoints","32","global + 2 multi + 29 regionais"],["células","578","texto→imagem · conj. 1"],
  ["OK","154","chamadas bem-sucedidas"],["model-404","423","modelo ausente na região"],
  ["estrutural","0","DNS / auth / host"],["429","0","sem auto-contenção (serial)"],
 ].map(([k,v,lbl]) => `<div class="stat"><span class="k mono">${k}</span><span class="v mono">${v}</span><span class="lbl">${lbl}</span></div>`).join("");
@@ -366,7 +426,7 @@ const HTML_OUT = `<!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mapa de Regiões × Modelos — Vertex AI (re-teste v2)</title>
-<meta name="description" content="Diagnóstico serial de 32 endpoints da Vertex AI × modelos de texto/imagem/vídeo — 578 células, cadeias de fallback.">
+<meta name="description" content="Diagnóstico serial de 32 endpoints da Vertex AI × modelos de texto/imagem/vídeo — 578 células de texto→imagem, cadeias de fallback, mais 10 células de geração condicionada por referência (experimento distinto).">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>${CSS}</style></head>
@@ -390,7 +450,7 @@ ${sec("04","s4","Mapa de calor — endpoint × modelo × latência", `${heatBloc
 ${sec("05","s5","Mapa por modelo — ordenado por latência", mcardsBlocks, "completo, sem abreviação")}
 ${sec("06","s6",...SECOES.s6,"sustentada pelos números")}
 ${sec("07","s7",...SECOES.s7,"divergências explícitas")}
-<section id="smaster"><div class="wrap"><div class="sec-h"><span class="no">·</span><h2>Tabela mestre — todas as 578 células</h2><span class="hint">filtrável · clique no detalhe p/ expandir</span></div>
+<section id="smaster"><div class="wrap"><div class="sec-h"><span class="no">·</span><h2>Tabela mestre — todas as 578 células de texto→imagem</h2><span class="hint">filtrável · clique no detalhe p/ expandir</span></div>
  <div class="filters">
   <div class="seg"><button class="on" data-mod="all">Todas</button><button data-mod="text">Texto</button><button data-mod="image">Imagem</button><button data-mod="video">Vídeo</button></div>
   <input type="text" id="msearch" placeholder="filtrar modelo ou endpoint…">
@@ -402,10 +462,12 @@ ${sec("07","s7",...SECOES.s7,"divergências explícitas")}
 </div></section>
 ${sec("08","s8",...SECOES.s8)}
 ${sec("09","s9",...SECOES.s9)}
+${sec("10","s10",...SECOES.s10,"capacidade distinta · não somar com as 578")}
 </main>
 <footer><div class="wrap"><div class="prov">
- <b>Proveniência &amp; sanitização.</b> Gerado deterministicamente a partir de <code>mapa-regioes-data.json</code> (mesma pasta) — 578 células, dados embutidos inline nesta página (legível por IA, sem <code>fetch</code> externo). Reproduz as 9 seções do relatório original; a Seção 5 (Mapa por modelo) aparece <b>completa</b>. Sanitizado para repositório público: nenhum project id, bucket GCS, IP, token, API key ou service-account. Os caminhos de modelo nos detalhes 404 usam <code>&lt;PROJECT&gt;</code> no lugar do ID real.<br>
- Re-teste serial v2 · 32 endpoints · 578 células · ${esc(prov.sdk)} · ${esc(prov.node)} · teste ${esc(prov.data_teste)} · publicado ${esc(prov.publicado_em)}.
+ <b>Proveniência &amp; sanitização.</b> Gerado deterministicamente a partir de <code>mapa-regioes-data.json</code> (mesma pasta), com os dados embutidos inline nesta página (legível por IA, sem <code>fetch</code> externo). Esta página reúne <b>dois conjuntos de dados distintos, que não devem ser somados</b>: (1) o re-teste de regiões, com <b>578 células</b> de geração <b>texto→imagem</b>, nas Seções 1–9 e na tabela mestre; e (2) o teste de <b>geração condicionada por referência</b>, com <b>10 células</b>, na Seção 10 — outra capacidade, outro experimento, outra data. A Seção 5 (Mapa por modelo) aparece <b>completa</b>. Sanitizado para repositório público: nenhum project id, hostname, caminho absoluto de servidor, bucket GCS, IP, token, API key ou service-account. Os caminhos de modelo nos detalhes 404 usam <code>&lt;PROJECT&gt;</code> no lugar do ID real; a Seção 10 usa <code>&lt;PROJECT&gt;</code>, <code>&lt;HOST&gt;</code>, <code>&lt;APP_DIR&gt;</code>, <code>&lt;PM2_LOGS&gt;</code>, <code>&lt;TMP&gt;</code> e <code>&lt;DRIVE_FILE_ID&gt;</code>.<br>
+ Conjunto 1 — re-teste serial v2 · 32 endpoints · 578 células · ${esc(prov.sdk)} · ${esc(prov.node)} · teste ${esc(prov.data_teste)} · publicado ${esc(prov.publicado_em)}.<br>
+ Conjunto 2 — geração condicionada por referência · ${RCG.celulas.length} células · ${RCG.metadata.total_chamadas_api} chamadas de API · rota <code>${esc(RCG.metadata.rota_testada)}</code> · SDK ${esc(RCG.metadata.sdk_google_genai_version)} · Node ${esc(RCG.metadata.node_version)} · execução ${esc(RCG.metadata.execucao)} · ${esc(RCG.metadata.data_execucao_utc)}.
 </div></div></footer>
 <script>${JS}</script>
 </body></html>`;
