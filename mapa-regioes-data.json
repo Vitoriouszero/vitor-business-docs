@@ -6897,7 +6897,7 @@
       "capacidade_testada": "geracao condicionada por imagem de referencia (inlineData na entrada)",
       "capacidade_NAO_testada": "preservacao da geometria do produto - exige revisao visual humana, PENDENTE",
       "distincao_importante": "esta capacidade e distinta de geracao texto->imagem e nao pode ser inferida dela",
-      "imagen_4_excluido": "familia Imagen 4 usa models.generateImages, cujo GenerateImagesConfig nao possui campo de imagem de referencia no SDK 1.52.0"
+      "imagen_4_excluido": "familia Imagen 4 usa models.generateImages, cujo GenerateImagesConfig nao possui campo de imagem de referencia no SDK 1.52.0. A exclusao vale para a rota models.generateImages, nao para a familia Imagen. O SDK 1.52.0 expoe models.editImage, com EditImageParameters.referenceImages obrigatorio, seis classes de referencia e enum EditMode de oito valores; exige imagen-3.0-capability-001 (ha referencia a um -002 com disponibilidade nao confirmada) e nao foi avaliada por nenhum experimento deste documento"
     },
     "imagem_referencia": {
       "caminho": "<APP_DIR>/downloads/images/<DRIVE_FILE_ID>.jpg",
@@ -7225,7 +7225,9 @@
       "nenhum parametro de config alem de responseModalities foi exercitado",
       "custo nao verificado no billing do GCP",
       "nenhuma falha ocorreu, entao os caminhos de erro (400/404/bloqueio/vazio) nao foram exercitados",
-      "o teste valida os insumos da cadeia de fallback, nao a cadeia em si"
+      "o teste valida os insumos da cadeia de fallback, nao a cadeia em si",
+      "rota models.editImage nao testada - as conclusoes valem so para models.generateContent e models.generateImages; editImage aceita referencia por mecanismo distinto (EditImageParameters.referenceImages, seis classes de referencia e enum EditMode de oito valores) e exige modelos imagen-3.0-capability-*, ausentes deste mapa",
+      "modelos imagen-3.0-capability-* nao estao neste mapa - nao testados nas 578 celulas nem nas 10 desta secao, sem mapa de disponibilidade por regiao; habilitacao no projeto GCP nao pode ser verificada (403 PERMISSION_DENIED / SERVICE_DISABLED, API de plataforma nao habilitada)"
     ]
   }
 }

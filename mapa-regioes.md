@@ -4,7 +4,7 @@
 **Execução:** 100% serial, ~1s entre chamadas, ~36,5 min · **578 células** (32 endpoints × modelos, texto/imagem/vídeo)
 **Artifact (visual, com heatmaps + tabela filtrável):** https://claude.ai/code/artifact/46318ca1-2df4-4c7d-953c-ac351263760f
 
-> Versão estática e legível por IA deste relatório (sem JavaScript). Reproduz as 9 seções do original; a Seção 5 aparece **completa, sem abreviação**. Dados sanitizados. Gerado em 2026-07-17.
+> Versão estática e legível por IA deste relatório (sem JavaScript). Reproduz as 10 seções do original; a Seção 5 aparece **completa, sem abreviação**. Dados sanitizados. Gerado em 2026-07-17. A Seção 10 foi acrescentada manualmente em 2026-07-23, posteriormente à geração.
 
 ---
 
@@ -407,7 +407,7 @@ O mapa de regiões acima testou exclusivamente geração **texto→imagem** (pro
 
 Pergunta: quais modelos, além do `gemini-2.5-flash-image` em uso, (a) aceitam imagem de referência via `inlineData` na rota `generateContent` sem rejeitar o formato, (b) efetivamente devolvem uma imagem na resposta, e (c) aceitam também **duas** imagens de referência simultâneas? Isso é pré-requisito factual para desenhar uma cadeia de fallback (modelo × região) para essas tools.
 
-Fora do escopo, por fato já verificado: a família **Imagen 4** usa a rota `models.generateImages`, cujo `GenerateImagesConfig` não possui campo de imagem de referência no SDK 1.52.0. Imagen 4 foi excluído por essa razão.
+Fora do escopo, por fato já verificado: a família **Imagen 4** usa a rota `models.generateImages`, cujo `GenerateImagesConfig` não possui campo de imagem de referência no SDK 1.52.0. Imagen 4 foi excluído por essa razão. A exclusão acima vale para a **rota** `models.generateImages`, não para a família Imagen como um todo: o SDK `@google/genai` 1.52.0 expõe uma segunda rota de imagem, `models.editImage`, cujo `EditImageParameters.referenceImages` é campo **obrigatório** e aceita imagem de referência por mecanismo distinto — seis classes de referência (`RawReferenceImage`, `MaskReferenceImage`, `SubjectReferenceImage`, `ControlReferenceImage`, `StyleReferenceImage`, `ContentReferenceImage`) e um enum `EditMode` de oito valores. Essa rota exige os modelos documentados pelo Google para ela — `imagen-3.0-capability-001`; existe referência a um `imagen-3.0-capability-002` cuja disponibilidade não foi confirmada — e **não foi avaliada por nenhum experimento deste documento**.
 
 ### 10.2 Metodologia
 
@@ -566,6 +566,8 @@ Esta lista é deliberadamente rigorosa. Superestimar o que foi provado é pior d
 8. **Custo não verificado no billing do GCP.**
 9. **Nenhuma falha ocorreu**, então os caminhos de erro (400 / 404 / bloqueio / vazio) não foram exercitados.
 10. **Este teste valida os insumos da cadeia de fallback, não a cadeia em si.** Saber que os 4 modelos aceitam referência é condição necessária, não suficiente. A ordem depende de qualidade (não medida), custo (não verificado) e comportamento sob falha real (não observado, porque não houve falhas).
+11. **A rota `models.editImage` não foi testada.** Todas as conclusões deste documento valem exclusivamente para `models.generateContent` e `models.generateImages`. `editImage` aceita imagem de referência por mecanismo distinto (`EditImageParameters.referenceImages`, com seis classes de referência e um enum `EditMode` de oito valores) e exige modelos da família `imagen-3.0-capability-*`, ausentes deste mapa.
+12. **Os modelos `imagen-3.0-capability-*` não estão neste mapa.** Não foram testados nas 578 células de texto→imagem nem nas 10 células desta seção, e não existe mapa de disponibilidade por região para eles. A habilitação deles no projeto GCP não pôde ser verificada: uma tentativa de listagem programática retornou `403 PERMISSION_DENIED · SERVICE_DISABLED`, porque a API de plataforma não está habilitada no projeto.
 
 ---
 
