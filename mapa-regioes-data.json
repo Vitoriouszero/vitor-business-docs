@@ -15,7 +15,7 @@
     "publicado_em": "2026-07-17",
     "sdk": "@google/genai 1.52.0",
     "node": "v20.20.2",
-    "artifact": "https://claude.ai/code/artifact/46318ca1-2df4-4c7d-953c-ac351263760f",
+    "artifact": "https://vitoriouszero.github.io/vitor-business-docs/mapa-regioes.html",
     "nota": "master reconstruido deterministicamente de perModel+cov; latencias de sucesso = valores medidos reais; latencias das celulas 404 omitidas (ms=null). report_data.json bruto sha256=d9ee0762d960dca74edf63a285232f95e23c3437e10491dc6e59f55eca1fd43d"
   },
   "endpointsOrder": [

@@ -2,7 +2,7 @@
 
 **Data:** 2026-07-16 · **SDK** @google/genai 1.52.0 · **Node** v20.20.2 · **Client** vertexai:true
 **Execução:** 100% serial, ~1s entre chamadas, ~36,5 min · **578 células** (32 endpoints × modelos, texto/imagem/vídeo)
-**Artifact (visual, com heatmaps + tabela filtrável):** https://claude.ai/code/artifact/46318ca1-2df4-4c7d-953c-ac351263760f
+**Versão visual (heatmaps + tabela filtrável):** https://vitoriouszero.github.io/vitor-business-docs/mapa-regioes.html
 
 > Versão estática e legível por IA deste relatório (sem JavaScript). Reproduz as 10 seções do original; a Seção 5 aparece **completa, sem abreviação**. Dados sanitizados. Gerado em 2026-07-17. A Seção 10 foi acrescentada manualmente em 2026-07-23, posteriormente à geração.
 
