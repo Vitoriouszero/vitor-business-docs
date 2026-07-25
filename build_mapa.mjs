@@ -21,7 +21,6 @@ const meta = d.meta, prov = d.provenance;
 const EPO = d.endpointsOrder, MBM = d.modelsByModality;
 const perModel = d.perModel, master = d.master;
 const RCG = d.reference_conditioned_generation;
-const ARTIFACT_URL = prov.artifact || "";
 
 const esc = (s) => String(s)
   .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
@@ -438,7 +437,6 @@ const HTML_OUT = `<!DOCTYPE html>
  <div class="provbar"><span><b>SDK</b> ${esc(prov.sdk)}</span><span><b>Node</b> ${esc(prov.node)}</span>
   <span><b>Client</b> vertexai:true</span><span><b>Data</b> ${esc(prov.data_teste)}</span>
   <span><b>Duração</b> ~36,5 min (serial)</span><span><b>Delay</b> ~1s entre chamadas</span></div>
- <p class="artlink"><span class="tag">Artifact interativo original (Claude):</span> <a href="${esc(ARTIFACT_URL)}" target="_blank" rel="noopener">${esc(ARTIFACT_URL)}</a></p>
  <div class="stats">${statCards}</div>
 </div></header>
 <nav class="nav"><div class="wrap">${navHtml}</div></nav>
