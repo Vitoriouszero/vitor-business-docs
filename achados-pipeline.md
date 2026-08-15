@@ -112,9 +112,13 @@ O prompt pediu explicitamente `vertical composition` em todas as chamadas do tes
 
 Isso é contra-indicado para criativos UGC, que são verticais.
 
-A causa provável está em **como** a proporção é pedida: o `server.js` codifica a razão de aspecto **no TEXTO do prompt** (linhas 177-180 de `generateImageWithFallback`), e **não** por parâmetro de configuração. O SDK expõe `imageConfig.aspectRatio`, que **não está em uso**. O achado indica que a estratégia via texto não é confiável de forma uniforme entre modelos.
+A causa foi confirmada e está em **como** a proporção era pedida: à época do teste (commit `d3b7a8a`, 2026-07-21) o `server.js` codificava a razão de aspecto **no TEXTO do prompt** (linhas 177-180 de `generateImageWithFallback`), e **não** por parâmetro estruturado. **Pedir razão de aspecto em prosa não funciona: o modelo ignora.** Não é "pouco confiável entre modelos" — é o canal errado.
 
-### STATUS: **NÃO CORRIGIDO**
+### A correção, e a evidência
+
+Em **2026-07-27** a forma textual foi substituída pelo parâmetro estruturado **`imageConfig`**, que o SDK já expunha. A medição posterior confirmou o parâmetro **honrado em 31 de 31 chamadas**: saída em **retrato, 768×1344**, contra a linha de base em **paisagem, 1120×928**, que era exatamente o que a estratégia textual vinha produzindo.
+
+### STATUS: **CORRIGIDO** em 2026-07-27 — razão de aspecto vai por `imageConfig`, não por texto no prompt
 
 ---
 

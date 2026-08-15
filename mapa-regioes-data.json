@@ -7220,7 +7220,7 @@
       "amostra de tamanho 1 por celula - sem repeticoes, sem medida de variancia, latencias sao observacoes unicas",
       "um unico prompt e um unico produto de referencia (532x443, fundo branco)",
       "cobertura de regioes nao exaustiva - gemini-2.5-flash-image roda em 14 regioes, apenas 2 testadas; para modelos 3.x apenas global foi testada e o 404 em regioes especificas NAO foi re-verificado",
-      "apenas 1 e 2 referencias testadas - limite superior desconhecido",
+      "apenas 1 e 2 referencias testadas - o limite superior DO MODELO segue desconhecido, mas o limite DO CODIGO e 2: o server.js monta um array literal de dois elementos com push condicional do segundo, sem laco e sem spread, entao 3 referencias nao sao representaveis. O fluxo encadeia: ref1 gera a imagem 2; ref1+ref2 geram a imagem 3",
       "ordem das parts nao variada - apenas [texto, imagens]",
       "nenhum parametro de config alem de responseModalities foi exercitado",
       "custo nao verificado no billing do GCP",
