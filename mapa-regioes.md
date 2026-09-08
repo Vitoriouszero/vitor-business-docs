@@ -510,9 +510,9 @@ As 10 imagens foram gravadas em `<APP_DIR>/downloads/images/`, com nomes `reftes
 
 > ### ⚠️ AVISO CRÍTICO, VÁLIDO PARA TODOS OS VEREDITOS ABAIXO
 >
-> **ACEITA REFERÊNCIA não é o mesmo que PRESERVA A GEOMETRIA DO PRODUTO. A preservação geométrica NÃO foi avaliada neste teste e depende de revisão visual humana, ainda PENDENTE.**
+> **ACEITA REFERÊNCIA não é o mesmo que PRESERVA A GEOMETRIA DO PRODUTO. Estas 10 células não mediram preservação geométrica.** Ela **foi medida depois**, por experimento separado e fora deste conjunto — os quatro números, e a ressalva de ruído que os acompanha obrigatoriamente, estão em **10.9**. *(Atualizado em 2026-09-08: até esta data o aviso afirmava que a preservação geométrica nunca havia sido avaliada, o que deixou de ser verdade.)*
 >
-> O teste mediu exclusivamente se o modelo aceita `inlineData` de imagem na entrada sem rejeitar o formato e devolve uma imagem na saída. Se essa imagem contém o produto correto — mesma forma, mesmas cores, mesmas proporções — não foi verificado e não pode ser verificado por esta via. As imagens geradas foram deliberadamente não abertas nem julgadas por quem executou o teste, para não contaminar o resultado com um juízo que não é mensurável assim. Um modelo pode aceitar a referência perfeitamente e ainda assim desenhar um produto completamente diferente. **Nenhuma frase deste documento deve ser lida como afirmando que qualquer modelo preserva a geometria do produto.**
+> O teste mediu exclusivamente se o modelo aceita `inlineData` de imagem na entrada sem rejeitar o formato e devolve uma imagem na saída. Se essa imagem contém o produto correto — mesma forma, mesmas cores, mesmas proporções — não foi verificado e não pode ser verificado por esta via. As imagens geradas foram deliberadamente não abertas nem julgadas por quem executou o teste, para não contaminar o resultado com um juízo que não é mensurável assim. Um modelo pode aceitar a referência perfeitamente e ainda assim desenhar um produto completamente diferente. **Nenhuma frase desta Seção 10 — com a única exceção do adendo 10.9 — deve ser lida como afirmando que qualquer modelo preserva a geometria do produto.**
 
 | Modelo | Veredito | 1 ref | 2 refs | Regiões confirmadas | Latência 1 ref | Latência 2 refs | MIME |
 |---|---|:-:|:-:|---|---:|---:|---|
@@ -522,14 +522,14 @@ As 10 imagens foram gravadas em `<APP_DIR>/downloads/images/`, com nomes `reftes
 | `gemini-3.1-flash-lite-image` | ACEITA REFERÊNCIA | sim | sim | `global` | 4,4 s | 4,9 s | `image/jpeg` |
 | Imagen 4 (família) | **NÃO TESTADO** — excluído a priori | — | — | — | — | — | — |
 
-Notas por modelo, todas com **preservação geométrica NÃO AVALIADA — pendente de revisão visual humana**:
+Notas por modelo. **A preservação geométrica não foi medida nestas 10 células; foi medida depois, fora delas — ver 10.9** *(atualizado em 2026-09-08)*:
 
 - **`gemini-2.5-flash-image`** — 4 chamadas (2 regiões × 2 experimentos), 0 falhas, payloads de 1.483.944 a 1.842.344 caracteres base64. Modelo em produção; serviu de **controle**, e seu sucesso valida que a montagem das parts do teste está correta. Comportamento idêntico nas duas regiões — a capacidade é estável entre regiões. É o de latência mais previsível. **Não respeitou o pedido de composição vertical em nenhuma das 4 chamadas** (devolveu 1120×928, paisagem) — **a causa já é conhecida e está corrigida: o pedido ia como texto no prompt, e o modelo ignora texto para isso; ver 10.9.** As regiões confirmadas na tabela acima são as duas testadas nestas 10 células; **`us-central1` também aceita referência para este modelo**, por medição posterior fora deste conjunto — ver 10.9.
 - **`gemini-3-pro-image`** — 2 chamadas, 0 falhas. Global-only; apenas `global` foi testada, e este teste **não** re-verificou o 404 em regiões específicas (premissa herdada de teste anterior). É de longe o mais lento, e o único cuja latência mais que dobrou com a segunda referência (fator 2,7×) — ver 10.6. Respeitou a composição vertical nos dois experimentos.
 - **`gemini-3.1-flash-image`** — 2 chamadas, 0 falhas; os **maiores payloads** do teste. Global-only. Custo marginal baixo pela segunda referência (+12,7%). Único modelo que **mudou de orientação entre os dois experimentos** — 768×1376 (retrato) no Exp.1 e 1134×944 (paisagem) no Exp.2, com o mesmo pedido textual de composição vertical.
 - **`gemini-3.1-flash-lite-image`** — 2 chamadas, 0 falhas. Global-only. **O mais rápido por larga margem**: ~2× mais rápido que o controle e até 11× mais rápido que o `gemini-3-pro-image` com 2 referências. **Único que devolve `image/jpeg`**, com payloads uma ordem de grandeza menores (135–242 KB contra 1,4–2,5 MB) **nas mesmas dimensões de pixel** (768×1376) — ou seja, compressão com perdas, não menor resolução. Isso é diretamente relevante para pipelines que encadeiam gerações (a saída de um passo vira referência do próximo, como no Exp.2): a perda por compressão pode acumular a cada iteração.
 
-**Conclusão geral.** Todos os 4 modelos testados aceitam imagem de referência via `inlineData` na rota `generateContent`, com 1 e com 2 referências. Nenhum rejeitou o formato. Do ponto de vista estrito de aceitação de referência, os 4 são candidatos válidos para uma cadeia de fallback. A **ordem** da cadeia depende de dois fatores que este teste não resolveu: a preservação geométrica (revisão visual humana pendente) e o custo por imagem.
+**Conclusão geral.** Todos os 4 modelos testados aceitam imagem de referência via `inlineData` na rota `generateContent`, com 1 e com 2 referências. Nenhum rejeitou o formato. Do ponto de vista estrito de aceitação de referência, os 4 são candidatos válidos para uma cadeia de fallback. A **ordem** da cadeia dependia de dois fatores que *este* teste não resolveu, e um deles deixou de estar em aberto: **a preservação geométrica foi medida**, por experimento posterior e fora destas 10 células — ver 10.9 *(atualizado em 2026-09-08)*. O custo por imagem segue não verificado no billing do GCP.
 
 ### 10.6 Anomalias e achados inesperados
 
@@ -556,7 +556,7 @@ Limite autorizado: 15 chamadas. Utilizadas: 10. Nenhuma desperdiçada em retenta
 
 Esta lista é deliberadamente rigorosa. Superestimar o que foi provado é pior do que não ter testado.
 
-1. **A preservação da geometria do produto NÃO foi avaliada, em nenhum modelo.** É o limite mais importante — exige revisão visual humana das 10 imagens, e essa revisão está **PENDENTE**.
+1. **A preservação da geometria do produto não foi avaliada nestas 10 células, em nenhum modelo.** A revisão visual humana das 10 imagens deste conjunto segue **PENDENTE**. **Deixou, porém, de ser um branco absoluto:** a preservação geométrica **foi medida** por experimento posterior, fora deste conjunto — ver 10.9 *(atualizado em 2026-09-08; até esta data este item afirmava que ela nunca fora avaliada)*.
 2. **Amostra de tamanho 1 por célula** — sem repetições, sem medida de variância, sem intervalo de confiança. As latências são observações únicas, não médias. O outlier de 48 s pode ser característica do modelo ou ruído de carga; com n=1 é impossível distinguir.
 3. **Um único prompt e um único produto de referência** (532×443, fundo branco). A aceitação de referência pode variar com o conteúdo da imagem, sua resolução, sua razão de aspecto ou o tema do prompt.
 4. **Cobertura de regiões não é exaustiva** — `gemini-2.5-flash-image` roda em 14 regiões, apenas 2 testadas; para os modelos 3.x apenas `global` foi testada, e o 404 em regiões específicas **não** foi re-verificado (premissa herdada).
@@ -565,9 +565,9 @@ Esta lista é deliberadamente rigorosa. Superestimar o que foi provado é pior d
 7. **Nenhum parâmetro de config além de `responseModalities` foi exercitado** — nada de `temperature`, `seed`, `aspectRatio` ou `imageConfig`. Os achados sobre orientação referem-se exclusivamente à estratégia **vigente à época** deste teste, que era codificar a razão de aspecto no texto do prompt. Essa estratégia foi **substituída pelo parâmetro estruturado `imageConfig` em 2026-07-27** — ver 10.9. Os resultados de orientação das tabelas 10.3 e 10.4 **não descrevem mais o comportamento atual do servidor**.
 8. **Custo não verificado no billing do GCP.**
 9. **Nenhuma falha ocorreu**, então os caminhos de erro (400 / 404 / bloqueio / vazio) não foram exercitados.
-10. **Este teste valida os insumos da cadeia de fallback, não a cadeia em si.** Saber que os 4 modelos aceitam referência é condição necessária, não suficiente. A ordem depende de qualidade (não medida), custo (não verificado) e comportamento sob falha real (não observado, porque não houve falhas).
+10. **Este teste valida os insumos da cadeia de fallback, não a cadeia em si.** Saber que os 4 modelos aceitam referência é condição necessária, não suficiente. A ordem depende de qualidade — **a preservação geométrica foi medida depois, fora deste conjunto, ver 10.9** *(atualizado em 2026-09-08)* —, de custo (não verificado no billing) e de comportamento sob falha real (não observado, porque não houve falhas).
 11. **A rota `models.editImage` não foi testada.** Todas as conclusões deste documento valem exclusivamente para `models.generateContent` e `models.generateImages`. `editImage` aceita imagem de referência por mecanismo distinto (`EditImageParameters.referenceImages`, com seis classes de referência e um enum `EditMode` de oito valores) e exige modelos da família `imagen-3.0-capability-*`, ausentes deste mapa.
-12. **Os modelos `imagen-3.0-capability-*` não estão neste mapa.** Não foram testados nas 578 células de texto→imagem nem nas 10 células desta seção, e não existe mapa de disponibilidade por região para eles. A habilitação deles no projeto GCP não pôde ser verificada: uma tentativa de listagem programática retornou `403 PERMISSION_DENIED · SERVICE_DISABLED`, porque a API de plataforma não está habilitada no projeto.
+12. **Os modelos `imagen-3.0-capability-*` não estão neste mapa.** Não foram testados nas 578 células de texto→imagem nem nas 10 células desta seção, e não existe mapa de disponibilidade por região para eles. A habilitação deles no projeto GCP não pôde ser verificada: uma tentativa de listagem programática retornou `403 PERMISSION_DENIED · SERVICE_DISABLED`, porque a API de plataforma não estava habilitada no projeto. **Essa condição foi RESOLVIDA em 2026-08-03** *(registrado aqui em 2026-09-08)*: o `403 PERMISSION_DENIED · SERVICE_DISABLED` não ocorre mais. **O resto da limitação continua valendo:** estes modelos seguem fora deste mapa, sem teste nas 578 células nem nas 10 desta seção, e sem mapa de disponibilidade por região.
 
 ### 10.9 Adendo — medições posteriores, FORA das 10 células
 
@@ -576,6 +576,19 @@ Esta lista é deliberadamente rigorosa. Superestimar o que foi provado é pior d
 **A razão de aspecto passou a ser um parâmetro estruturado, e a forma textual é ignorada.** A afirmação anterior deste documento — de que a razão de aspecto é codificada **dentro do texto do prompt** — está **superada e era uma descrição de estratégia errada**. A forma textual foi testada e **o modelo simplesmente a ignora**: pedir `vertical composition` em prosa não muda a saída. Em **2026-07-27** o `server.js` passou a enviar a razão de aspecto como **parâmetro estruturado `imageConfig`**, e não mais como texto. A medição posterior confirmou o parâmetro estruturado **honrado em 31 de 31 chamadas**: saída em **retrato, 768×1344**, contra a linha de base em **paisagem, 1120×928**, que era o que a estratégia textual produzia. Ou seja: o que a Seção 10.6 registrou como "o modelo em produção não respeita o pedido de composição vertical" **não era teimosia do modelo — era o pedido chegando no lugar errado.**
 
 **`gemini-2.5-flash-image` com imagem de referência também funciona em `us-central1`.** Medição posterior, de célula única: `gemini-2.5-flash-image` + imagem de referência na região **`us-central1` = SUCESSO**. As 10 células desta seção só cobriram `europe-southwest1` e `global` para esse modelo, então `us-central1` era, até aqui, um branco — não um "não funciona". Este fato pertence à capacidade de **geração condicionada por referência**, **não** ao mapa de 578 células texto→imagem, ainda que a mesma região também apareça como `OK` lá para o mesmo modelo — são duas capacidades distintas medidas por dois experimentos distintos, e uma não prova a outra.
+
+**A preservação geométrica FOI medida — e não é mais um branco.** A afirmação anterior deste documento, de que ela nunca havia sido avaliada, **está superada**. Medição posterior, fora das 10 células desta seção, **n = 8 por modelo** (n = 10 para o modelo em produção):
+
+| Modelo | Preservação geométrica | n |
+|---|---:|---:|
+| `gemini-3-pro-image` | 97,3% | 8 |
+| `gemini-3.1-flash-image` | 96,5% | 8 |
+| `gemini-3.1-flash-lite-image` | 91,1% | 8 |
+| `gemini-2.5-flash-image` | 85,0% | 10 |
+
+> 🔴 **RESSALVA OBRIGATÓRIA, e ela vale para os quatro números acima — não os leia sem ela.** O ruído por imagem é de **±7,1 pontos**; o erro padrão a n=8 é de **≈2,5 pontos**; **diferenças abaixo de ~5 pontos não são interpretáveis**. Ou seja: **97,3% e 96,5% não são distinguíveis entre si**, e ler um como “melhor” que o outro é precisão falsa. O que a medição separa com folga é o modelo em produção (85,0%) dos três demais. **Nunca cite estes números sem esta ressalva ao lado.**
+
+*Datação: os quatro valores foram incorporados a esta documentação em **2026-09-08**. A data em que a medição foi executada não consta da fonte usada para este registro e, por isso, não é afirmada aqui.*
 
 ---
 

@@ -126,13 +126,14 @@ Em **2026-07-27** a forma textual foi substituída pelo parâmetro estruturado *
 
 Bugs já mapeados em revisões anteriores do `server.js`, listados aqui para não se perderem:
 
-- **Variável `editMode` inexistente na tool `remove_background` standalone** — a tool **nunca retorna sucesso** quando chamada isoladamente.
 - **`catch {}` silencioso na resolução da segunda imagem de referência** — degrada de 2 referências para 1 **sem avisar**. O chamador acredita que passou duas.
 - **Import morto `SubjectReferenceImage`** — importado do SDK e nunca usado.
 - **Objeto `mainRawRef` construído e nunca consumido** — montado com `referenceId` e `referenceImage`, e descartado.
 - **Divergência de código de erro** — a mesma condição retorna ora `IMAGEN_ERROR`, ora `IMAGEN_NO_OUTPUT`.
 
-### STATUS: **NÃO CORRIGIDO**
+> **Correção de 2026-09-08 — uma afirmação foi removida desta lista.** Havia aqui o item “variável `editMode` inexistente na tool `remove_background` standalone — a tool nunca retorna sucesso quando chamada isoladamente”. **O símbolo `editMode` não existe no `server.js`.** O que existe é `edit_mode`, como chave literal — não é o mesmo símbolo, e trocar um pelo outro seria trocar uma afirmação falsa por outra não verificada. Como não foi possível determinar o que a afirmação original pretendia descrever, ela foi **removida por inteiro, sem substituição**. Se a tool `remove_background` standalone de fato falha quando chamada isoladamente, isso precisa ser medido de novo e registrado com a evidência.
+
+### STATUS: **NÃO CORRIGIDO** — vale para os quatro itens que restam acima
 
 ---
 

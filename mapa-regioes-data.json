@@ -6895,7 +6895,7 @@
       "total_chamadas_api": 10,
       "total_falhas": 0,
       "capacidade_testada": "geracao condicionada por imagem de referencia (inlineData na entrada)",
-      "capacidade_NAO_testada": "preservacao da geometria do produto - exige revisao visual humana, PENDENTE",
+      "capacidade_NAO_testada": "preservacao da geometria do produto NAO foi medida nestas 10 celulas (revisao visual humana destas 10 imagens segue pendente); ela FOI medida depois, fora deste conjunto - ver veredito_por_modelo.*.preservacao_geometrica e limitacoes[0]; registrado em 2026-09-08",
       "distincao_importante": "esta capacidade e distinta de geracao texto->imagem e nao pode ser inferida dela",
       "imagen_4_excluido": "familia Imagen 4 usa models.generateImages, cujo GenerateImagesConfig nao possui campo de imagem de referencia no SDK 1.52.0. A exclusao vale para a rota models.generateImages, nao para a familia Imagen. O SDK 1.52.0 expoe models.editImage, com EditImageParameters.referenceImages obrigatorio, seis classes de referencia e enum EditMode de oito valores; exige imagen-3.0-capability-001 (ha referencia a um -002 com disponibilidade nao confirmada) e nao foi avaliada por nenhum experimento deste documento"
     },
@@ -7117,7 +7117,7 @@
         "latencia_1ref_ms": [8702, 8238],
         "latencia_2ref_ms": [10977, 9543],
         "mime_saida": "image/png",
-        "preservacao_geometrica": "NAO AVALIADA - pendente de revisao visual humana",
+        "preservacao_geometrica": "MEDIDA fora destas 10 celulas: 85,0% (n=10). RESSALVA OBRIGATORIA: ruido de +-7,1 pontos por imagem, erro padrao ~2,5 pontos a n=8, diferencas abaixo de ~5 pontos NAO sao interpretaveis. Registrado em 2026-09-08",
         "observacao": "modelo atualmente em producao; serviu de CONTROLE; nao respeitou o pedido de composicao vertical em nenhuma das 4 chamadas (devolveu 1120x928 paisagem)"
       },
       "gemini-3-pro-image": {
@@ -7130,7 +7130,7 @@
         "latencia_1ref_ms": [17832],
         "latencia_2ref_ms": [48141],
         "mime_saida": "image/png",
-        "preservacao_geometrica": "NAO AVALIADA - pendente de revisao visual humana",
+        "preservacao_geometrica": "MEDIDA fora destas 10 celulas: 97,3% (n=8). RESSALVA OBRIGATORIA: ruido de +-7,1 pontos por imagem, erro padrao ~2,5 pontos a n=8, diferencas abaixo de ~5 pontos NAO sao interpretaveis - em particular 97,3% e 96,5% NAO sao distinguiveis entre si. Registrado em 2026-09-08",
         "observacao": "global-only; modelo mais lento do teste; latencia 2.7x maior com 2 referencias (amostra unica, pode ser variancia de carga); respeitou composicao vertical nos dois experimentos"
       },
       "gemini-3.1-flash-image": {
@@ -7143,7 +7143,7 @@
         "latencia_1ref_ms": [10784],
         "latencia_2ref_ms": [12149],
         "mime_saida": "image/png",
-        "preservacao_geometrica": "NAO AVALIADA - pendente de revisao visual humana",
+        "preservacao_geometrica": "MEDIDA fora destas 10 celulas: 96,5% (n=8). RESSALVA OBRIGATORIA: ruido de +-7,1 pontos por imagem, erro padrao ~2,5 pontos a n=8, diferencas abaixo de ~5 pontos NAO sao interpretaveis - em particular 97,3% e 96,5% NAO sao distinguiveis entre si. Registrado em 2026-09-08",
         "observacao": "global-only; maiores payloads do teste; mudou de retrato (768x1376) para paisagem (1134x944) entre Exp.1 e Exp.2 com o mesmo pedido textual de composicao vertical"
       },
       "gemini-3.1-flash-lite-image": {
@@ -7156,7 +7156,7 @@
         "latencia_1ref_ms": [4391],
         "latencia_2ref_ms": [4866],
         "mime_saida": "image/jpeg",
-        "preservacao_geometrica": "NAO AVALIADA - pendente de revisao visual humana",
+        "preservacao_geometrica": "MEDIDA fora destas 10 celulas: 91,1% (n=8). RESSALVA OBRIGATORIA: ruido de +-7,1 pontos por imagem, erro padrao ~2,5 pontos a n=8, diferencas abaixo de ~5 pontos NAO sao interpretaveis. Registrado em 2026-09-08",
         "observacao": "global-only; modelo MAIS RAPIDO do teste (2x mais rapido que o controle); UNICO que devolve image/jpeg com payload uma ordem de grandeza menor (compressao com perdas), relevante para pipelines que encadeiam geracoes"
       }
     },
@@ -7216,7 +7216,7 @@
       "observacao": "estimativa de ordem de grandeza baseada em faixas publicas de preco por imagem (~USD 0.04 classe flash, ~USD 0.13 classe pro); NAO consultada no console de billing do GCP"
     },
     "limitacoes": [
-      "preservacao da geometria do produto NAO avaliada em nenhum modelo - exige revisao visual humana, PENDENTE",
+      "preservacao da geometria do produto NAO medida nestas 10 celulas (revisao visual humana destas 10 imagens segue PENDENTE), mas NAO e mais um branco: foi medida depois, fora deste conjunto - gemini-3-pro-image 97,3% (n=8), gemini-3.1-flash-image 96,5% (n=8), gemini-3.1-flash-lite-image 91,1% (n=8), gemini-2.5-flash-image 85,0% (n=10). RESSALVA OBRIGATORIA: ruido de +-7,1 pontos por imagem, erro padrao ~2,5 pontos a n=8, diferencas abaixo de ~5 pontos NAO sao interpretaveis, logo 97,3% e 96,5% NAO sao distinguiveis entre si; o que a medicao separa com folga e o modelo em producao (85,0%) dos tres demais. Registrado em 2026-09-08",
       "amostra de tamanho 1 por celula - sem repeticoes, sem medida de variancia, latencias sao observacoes unicas",
       "um unico prompt e um unico produto de referencia (532x443, fundo branco)",
       "cobertura de regioes nao exaustiva - gemini-2.5-flash-image roda em 14 regioes, apenas 2 testadas; para modelos 3.x apenas global foi testada e o 404 em regioes especificas NAO foi re-verificado",
@@ -7227,7 +7227,7 @@
       "nenhuma falha ocorreu, entao os caminhos de erro (400/404/bloqueio/vazio) nao foram exercitados",
       "o teste valida os insumos da cadeia de fallback, nao a cadeia em si",
       "rota models.editImage nao testada - as conclusoes valem so para models.generateContent e models.generateImages; editImage aceita referencia por mecanismo distinto (EditImageParameters.referenceImages, seis classes de referencia e enum EditMode de oito valores) e exige modelos imagen-3.0-capability-*, ausentes deste mapa",
-      "modelos imagen-3.0-capability-* nao estao neste mapa - nao testados nas 578 celulas nem nas 10 desta secao, sem mapa de disponibilidade por regiao; habilitacao no projeto GCP nao pode ser verificada (403 PERMISSION_DENIED / SERVICE_DISABLED, API de plataforma nao habilitada)"
+      "modelos imagen-3.0-capability-* nao estao neste mapa - nao testados nas 578 celulas nem nas 10 desta secao, sem mapa de disponibilidade por regiao; habilitacao no projeto GCP nao pode ser verificada a epoca (403 PERMISSION_DENIED / SERVICE_DISABLED, API de plataforma nao habilitada) - essa condicao foi RESOLVIDA em 2026-08-03, o 403 SERVICE_DISABLED nao ocorre mais (registrado em 2026-09-08); o RESTO DA LIMITACAO CONTINUA VALENDO: estes modelos seguem fora deste mapa, sem teste e sem mapa de disponibilidade por regiao"
     ]
   }
 }
